@@ -1,0 +1,69 @@
+{
+  "config": {
+    "name": "test_dry_run",
+    "dataset": "musique",
+    "methods": [
+      "long_context",
+      "traditional_rag"
+    ],
+    "model": "kimi-k3",
+    "sample_n": 5,
+    "metrics": null,
+    "timestamp": 1785053636.424598,
+    "model_resolved": "kimi-k3"
+  },
+  "results": {
+    "long_context": {
+      "em": {
+        "mean": 0.2,
+        "ci_lo": 0.0,
+        "ci_hi": 0.6,
+        "n": 5
+      },
+      "f1": {
+        "mean": 0.2,
+        "ci_lo": 0.0,
+        "ci_hi": 0.6,
+        "n": 5
+      },
+      "correct": {
+        "mean": 0.2,
+        "ci_lo": 0.0,
+        "ci_hi": 0.6,
+        "n": 5
+      },
+      "recall@5": {
+        "mean": 0.5,
+        "ci_lo": 0.1,
+        "ci_hi": 0.9,
+        "n": 5
+      }
+    },
+    "traditional_rag": {
+      "em": {
+        "mean": 0.2,
+        "ci_lo": 0.0,
+        "ci_hi": 0.6,
+        "n": 5
+      },
+      "f1": {
+        "mean": 0.2,
+        "ci_lo": 0.0,
+        "ci_hi": 0.6,
+        "n": 5
+      },
+      "correct": {
+        "mean": 0.2,
+        "ci_lo": 0.0,
+        "ci_hi": 0.6,
+        "n": 5
+      },
+      "recall@5": {
+        "mean": 0.7,
+        "ci_lo": 0.5,
+        "ci_hi": 0.9,
+        "n": 5
+      }
+    }
+  }
+}

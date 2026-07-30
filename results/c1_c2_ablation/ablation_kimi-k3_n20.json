@@ -1,0 +1,287 @@
+{
+  "S1_B": {
+    "strategy": "S1",
+    "backend": "B",
+    "metrics": {
+      "em": {
+        "mean": 0.45,
+        "ci_lo": 0.25,
+        "ci_hi": 0.7,
+        "n": 20
+      },
+      "f1": {
+        "mean": 0.6934523809523809,
+        "ci_lo": 0.5351190476190476,
+        "ci_hi": 0.85,
+        "n": 20
+      },
+      "contains": {
+        "mean": 0.65,
+        "ci_lo": 0.45,
+        "ci_hi": 0.85,
+        "n": 20
+      },
+      "correct": {
+        "mean": 0.75,
+        "ci_lo": 0.55,
+        "ci_hi": 0.95,
+        "n": 20
+      },
+      "recall@5": {
+        "mean": 0.1,
+        "ci_lo": 0.0,
+        "ci_hi": 0.25,
+        "n": 20
+      }
+    },
+    "avg_steps": 1.25,
+    "avg_elapsed_s": 12.0,
+    "n_valid": 20,
+    "per_sample": [
+      {
+        "id": "A group of genetical",
+        "pred": "clone",
+        "gold": "a clone",
+        "retrieved_titles": [],
+        "gold_titles": [],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 10.413265228271484
+      },
+      {
+        "id": "Do motile cilia usua",
+        "pred": "large numbers",
+        "gold": "large",
+        "retrieved_titles": [
+          "Supporting science fact",
+          "Supporting science fact",
+          "Supporting science fact",
+          "Supporting science fact",
+          "Distractor 2",
+          "Distractor 3"
+        ],
+        "gold_titles": [],
+        "n_steps": 4,
+        "n_collected": 6,
+        "elapsed_s": 41.49297094345093
+      },
+      {
+        "id": "What type of bonds d",
+        "pred": "single covalent bonds",
+        "gold": "carbon-carbon single bonds",
+        "retrieved_titles": [],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 5.876866102218628
+      },
+      {
+        "id": "A convergent plate b",
+        "pred": "move toward each other",
+        "gold": "come toward each other",
+        "retrieved_titles": [],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 8.532907724380493
+      },
+      {
+        "id": "Upon reaching the po",
+        "pred": "neurotransmitter",
+        "gold": "neurotransmitter",
+        "retrieved_titles": [],
+        "gold_titles": [],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 8.744821071624756
+      },
+      {
+        "id": "Trichomoniasis is ca",
+        "pred": "protozoa",
+        "gold": "protozoa",
+        "retrieved_titles": [
+          "Supporting science fact",
+          "Distractor 2",
+          "Distractor 1",
+          "Distractor 2"
+        ],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 2,
+        "n_collected": 4,
+        "elapsed_s": 14.510974884033203
+      },
+      {
+        "id": "The adrenal cortex d",
+        "pred": "kidneys",
+        "gold": "kidneys",
+        "retrieved_titles": [],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 9.895450830459595
+      },
+      {
+        "id": "What is the lowest l",
+        "pred": "cell",
+        "gold": "the cell",
+        "retrieved_titles": [],
+        "gold_titles": [],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 6.068688154220581
+      },
+      {
+        "id": "A fact or question i",
+        "pred": "falsifiability",
+        "gold": "it is testable",
+        "retrieved_titles": [],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 9.134988069534302
+      },
+      {
+        "id": "What do populations ",
+        "pred": "new individuals",
+        "gold": "individuals",
+        "retrieved_titles": [],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 7.758692026138306
+      },
+      {
+        "id": "What long molecules ",
+        "pred": "polymers",
+        "gold": "polymers",
+        "retrieved_titles": [],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 6.279668092727661
+      },
+      {
+        "id": "Which system in your",
+        "pred": "urinary bladder",
+        "gold": "urinary system",
+        "retrieved_titles": [],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 8.731827974319458
+      },
+      {
+        "id": "The first few specie",
+        "pred": "pioneer species",
+        "gold": "pioneer species",
+        "retrieved_titles": [],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 7.422288179397583
+      },
+      {
+        "id": "Neutron stars are th",
+        "pred": "massive stars",
+        "gold": "supernova explosions",
+        "retrieved_titles": [],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 9.788578748703003
+      },
+      {
+        "id": "An antigen is a mole",
+        "pred": "immune response",
+        "gold": "immune",
+        "retrieved_titles": [],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 8.643352031707764
+      },
+      {
+        "id": "The sites of protein",
+        "pred": "ribosomes",
+        "gold": "ribosomes",
+        "retrieved_titles": [],
+        "gold_titles": [],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 7.156324863433838
+      },
+      {
+        "id": "How many orders can ",
+        "pred": "29 orders",
+        "gold": "29",
+        "retrieved_titles": [
+          "Supporting science fact",
+          "Distractor 2",
+          "Supporting science fact"
+        ],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 2,
+        "n_collected": 3,
+        "elapsed_s": 28.03645968437195
+      },
+      {
+        "id": "What does the large ",
+        "pred": "maintains turgor pressure; stores materials",
+        "gold": "store water",
+        "retrieved_titles": [],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 12.777271032333374
+      },
+      {
+        "id": "What are all living ",
+        "pred": "cells",
+        "gold": "cells",
+        "retrieved_titles": [],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 8.429485082626343
+      },
+      {
+        "id": "What develop inside ",
+        "pred": "Ovules (which mature into seeds).",
+        "gold": "angiosperm seeds",
+        "retrieved_titles": [],
+        "gold_titles": [],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 20.90752673149109
+      }
+    ]
+  }
+}

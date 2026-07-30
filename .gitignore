@@ -1,0 +1,23 @@
+# 密钥
+.env
+
+# Python
+__pycache__/
+*.pyc
+
+# 本地缓存与日志（可重新生成，体积大）
+cache/
+logs/
+
+# 系统/工具
+.DS_Store
+.zcode/
+
+# 论文（投稿中，暂不公开）
+paper/
+
+# 内部文档（仅保留 3 篇技术文档公开）
+docs/*
+!docs/开发手册.md
+!docs/架构决策.md
+!docs/W1-共享层方案.md

@@ -1,0 +1,152 @@
+{
+  "The pipeline consists of 7 sequential stages: detect(), extract(), build_graph(), cluster(), analyze(), report(), and export().": [
+    "pipeline 7 stages detect extract build_graph cluster analyze report export source code",
+    "sequential pipeline stages detect extract build_graph cluster analyze report export implementation",
+    "multi-stage pipeline detect extract build_graph cluster analyze report export example"
+  ],
+  "Each stage communicates through plain Python dicts and NetworkX graphs with no shared state and no side effects outside the graphify-out/ directory.": [
+    "Python dict NetworkX graph pipeline no shared state",
+    "side-effect free data pipeline Python NetworkX",
+    "graphify-out directory stage communication plain Python dicts"
+  ],
+  "The extract() function returns a dictionary with 'nodes' and 'edges' keys, where each node has 'id', 'label', and 'source_file' fields and each edge has 'source', 'target', and 'type' fields.": [
+    "extract() function returns dict nodes edges source code",
+    "node id label source_file edge source target type",
+    "extract function returns dictionary with nodes and edges keys"
+  ],
+  "Module-top-level indirect_call sources and bash source/script-invocation targets that minted a node id from an absolute path are canonicalized to the root-relative node id in graph.json.": [
+    "graph.json canonicalize root-relative node id absolute path",
+    "indirect_call source bash source target minted node id canonicalization",
+    "module top-level indirect_call bash script invocation canonicalized root-relative node id"
+  ],
+  "The post-commit hook refuses to overwrite an existing graph.json if it is over the size cap or unparseable, matching the CLI behavior.": [
+    "post-commit hook graph.json size cap overwrite",
+    "Git hook prevent overwrite existing graph.json unparseable size limit",
+    "CLI behavior graph.json size cap unparseable hook"
+  ],
+  "Closure parameters in JS/TS (e.g., `rows.map(r => ...)`) now shadow outer names, preventing false indirect_call edges from binding to a corpus-wide callable of the same name.": [
+    "closure parameters shadows outer names JavaScript TypeScript",
+    "arrow function parameter shadowing prevents false indirect_call edges",
+    "rows.map closure parameter shadowing callable binding fix"
+  ],
+  "graphify achieves LOCOMO retrieval recall@10 of 0.497, approximately 10x mem0 (0.048) and above BM25 (0.362).": [
+    "graphify LOCOMO retrieval recall@10 0.497",
+    "graphify vs mem0 BM25 recall@10 comparison",
+    "graphify 10x mem0 BM25 recall benchmark"
+  ],
+  "graphify's LOCOMO QA accuracy is 45.3%, which is within 4.4 percentage points of supermemory (49.7%) at about a tenth of supermemory's ingest cost ($1.40 vs $15.67).": [
+    "graphify LOCOMO QA accuracy 45.3%",
+    "graphify QA accuracy vs supermemory ingest cost comparison",
+    "graphify LOCOMO benchmark results documentation"
+  ],
+  "graphify builds its graph index with zero LLM credits ($0), while the LOCOMO ingest cost is approximately $1.40.": [
+    "graphify zero cost graph index building",
+    "LOCOMO $1.40 ingest cost",
+    "graphify vs LOCOMO cost comparison graph index"
+  ],
+  "The project is named Graphify and is hosted at graphify.com": [
+    "graphify.com source code",
+    "graphify project documentation site:github.com",
+    "graphify graph visualization framework"
+  ],
+  "The project is maintained by the Graphify-Labs organization": [
+    "Graphify-Labs source code repository",
+    "Graphify-Labs documentation site:github.com",
+    "Graphify-Labs project documentation"
+  ],
+  "The project logo is hosted at https://raw.githubusercontent.com/Graphify-Labs/graphify/v8/docs/logo.png": [
+    "\"Graphify-Labs\" \"graphify\" logo URL source code",
+    "Graphify-Labs/graphify repository logo image path",
+    "site:github.com Graphify-Labs graphify logo \"raw.githubusercontent.com\""
+  ],
+  "The project has a graphify knowledge graph stored at graphify-out/ directory": [
+    "graphify knowledge graph graphify-out/ directory",
+    "graphify-out/ knowledge graph storage format",
+    "graphify knowledge graph output directory structure"
+  ],
+  "The command `graphify update .` updates the graph using AST-only analysis with no API cost": [
+    "graphify update graph AST analysis",
+    "graphify update . command documentation",
+    "graphify AST-only graph update no API"
+  ],
+  "The file graphify-out/wiki/index.md can be navigated instead of reading raw files if it exists": [
+    "graphify-out/wiki/index.md navigation",
+    "graphify wiki index.md how to use",
+    "graphify documentation wiki index.md"
+  ],
+  "graphify runs as a Claude Code skill and optionally as a local MCP stdio server.": [
+    "graphify Claude Code skill MCP stdio server",
+    "graphify MCP server stdio source code",
+    "graphify running as Claude Code skill MCP"
+  ],
+  "safe_fetch() streams responses and aborts at 50 MB, and safe_fetch_text() aborts at 10 MB.": [
+    "safe_fetch() implementation source code GitHub",
+    "safe_fetch_text() function API documentation",
+    "safe_fetch() safe_fetch_text() stream abort 50MB 10MB example"
+  ],
+  "security.validate_url() allows only http and https schemes, blocks private/loopback/link-local IPs, and blocks cloud metadata endpoints.": [
+    "security.validate_url() allow only http https schemes",
+    "block private loopback link-local IPs security.validate_url()",
+    "cloud metadata endpoint blocking security.validate_url()"
+  ],
+  "Tree-sitter parses code files and extracts classes, functions, imports, call graphs, and inline comments in Pass 1.": [
+    "Tree-sitter parse code files extract classes functions imports call graph inline comments Pass 1",
+    "Tree-sitter code analysis pass 1 class extraction function import call graph",
+    "Tree-sitter AST parsing extract classes functions imports call graph documentation"
+  ],
+  "Pass 1 supports 25 programming languages for code structure extraction.": [
+    "Pass 1 25 programming languages code structure extraction",
+    "Pass1 tool supports 25 languages code extraction",
+    "code structure extraction 25 languages Pass 1 support"
+  ],
+  "Community detection uses the Leiden algorithm to group nodes by edge density without requiring embeddings.": [
+    "Leiden algorithm community detection implementation",
+    "Leiden algorithm clustering edge density",
+    "Leiden algorithm source code documentation"
+  ],
+  "The Docker MCP Toolkit catalog entry `sqlite-mcp-server` (image `mcp/sqlite-mcp-server`) is broken because its entrypoint `/app/.venv/bin/mcp-server-sqlite` does not exist in the published layer.": [
+    "sqlite-mcp-server Docker image entrypoint /app/.venv/bin/mcp-server-sqlite missing",
+    "mcp/sqlite-mcp-server Dockerfile entrypoint not found",
+    "sqlite-mcp-server published image broken missing mcp-server-sqlite"
+  ],
+  "The `SQLite` catalog entry (`mcp/sqlite`) is marked 'Archived' in catalog metadata but boots and serves correctly.": [
+    "site:github.com SQLite MCP catalog archived metadata but boots correctly",
+    "archived MCP server catalog entry sqlite boots serves correctly",
+    "mcp sqlite catalog metadata archived status boots fine"
+  ],
+  "The SQLite MCP server provides six tools: `read_query`, `write_query`, `create_table`, `list_tables`, `describe_table`, and `append_insight`.": [
+    "SQLite MCP server read_query write_query create_table list_tables describe_table append_insight tools",
+    "SQLite MCP server implementation source code six tools",
+    "MCP SQLite server tools read_query write_query create_table list_tables describe_table append_insight documentation"
+  ],
+  "graphify exposes graph structure, source files, node labels, and relationships via graph.json": [
+    "graphify graph.json source code structure",
+    "graphify documentation node labels relationships",
+    "graphify graph structure source files graph.json"
+  ],
+  "graphify's behavior is offline and deterministic by default": [
+    "graphify offline deterministic behavior",
+    "graphify \"offline\" \"deterministic\" site:github.com",
+    "graphify library default mode offline deterministic"
+  ],
+  "graphify explain is a command that displays node information": [
+    "graphify explain command node information",
+    "\"graphify explain\" node documentation",
+    "graphify CLI explain node details"
+  ],
+  "The /graphify tool can turn any folder of files into a navigable knowledge graph with community detection.": [
+    "graphify tool folder files knowledge graph community detection",
+    "convert code directory to knowledge graph visualization tool",
+    "graphify codebase navigable graph community detection tool"
+  ],
+  "The /graphify tool supports cloning a GitHub repository by URL and running the full pipeline on it.": [
+    "/graphify clone GitHub repository URL pipeline",
+    "graphify tool clone repo run pipeline",
+    "graphify GitHub repo URL cloning documentation"
+  ],
+  "The /graphify tool can build directed graphs that preserve edge direction (source→target) using the --directed flag.": [
+    "/graphify tool directed graph build --directed flag",
+    "graphify directed graph edge direction source target",
+    "graphify --directed flag documentation source code"
+  ]
+}

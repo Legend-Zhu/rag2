@@ -1,0 +1,152 @@
+# RAG² 实验配置
+# 所有可变参数集中在此，代码不硬编码
+
+# ─────────────────────────────────────────────────────────
+# 模型接入（OpenAI / Anthropic 兼容协议）
+# 调用平台验证后填入真实 base_url 与 api_key_env
+# ─────────────────────────────────────────────────────────
+models:
+  kimi-k3:
+    protocol: openai           # openai | anthropic
+    base_url: "https://api.kimi.com/coding/v1"
+    api_key_env: KIMI_API_KEY  # 从环境变量读，不硬编码
+    model_name: k3
+    max_tokens: 8192           # 单次输出最大长度（非上下文窗口！）
+    temperature: 0.0           # 默认贪心；K3 用 forced_temperature 覆盖
+    forced_temperature: 1.0    # K3 API 硬约束：仅接受 temp=1.0（已验证），可复现性靠缓存保证
+    context_window: 1000000    # 1M（输入守卫 + E0 长上下文实验）
+  qwen3.8:
+    protocol: openai
+    base_url: "https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1"
+    api_key_env: QWEN_API_KEY
+    model_name: qwen3.8-max-preview
+    max_tokens: 4096              # thinking 模式下需留足额度（实测单题 80-120 completion）
+    temperature: 0.0              # Qwen3.8 不强制温度，可贪心保可复现
+    context_window: 1000000
+    # thinking 模式被 API 强制开启（enable_thinking restricted to True）
+    # 这是 thesis H1/H2 的时代佐证：reasoning-first LLMs 与 RAG² 范式主张一致
+  deepseek-v4-flash:
+    protocol: openai
+    base_url: "https://www.dmxapi.cn/v1"
+    api_key_env: "DMX_API_KEY"
+    model_name: deepseek-v4-flash
+    max_tokens: 8192
+    temperature: 0.0
+    context_window: 1000000
+    # 第三方代理 dmxapi，实测 2s/调用（比 Qwen 快 14x），无审查，10并发 2.8s
+    # 自报 DeepSeek-V3（模型自报不准，不影响使用）
+
+# 角色绑定
+# 主力 deepseek-v4-flash（实测 2s/调用，无审查，10并发2.8s）
+# 注：主实验（A/B/C temporal eval）generator/verifier 均用 deepseek-v4-flash
+# （脚本 test_ab_scale100.py 直接硬编码 MODEL，与此处一致）。
+# 多模型跨验证（如 qwen3.8 作 verifier 对照）为 future work。
+roles:
+  generator: deepseek-v4-flash
+  verifier: deepseek-v4-flash
+
+# ─────────────────────────────────────────────────────────
+# 数据集子采样（固定 seed 保可复现）
+# ─────────────────────────────────────────────────────────
+datasets:
+  musique:
+    n: 1000
+    seed: 42
+    split: validation           # dgslibisey/MuSiQue 用 validation（2417 rows, 含 is_supporting）
+  hotpotqa:
+    n: 1000
+    seed: 42
+    split: distractor
+  alce:
+    n: 500
+    seed: 42
+  freshqa:
+    n: 500
+    seed: 42
+  sciq:                            # 科学问答，纯科学内容（避开审查），主战场
+    n: 1000
+    seed: 42
+    split: train
+  scifact:                         # SciFact 科研 claim 验证（BEIR 标准，独立语料库）
+    n: 200
+    seed: 42
+    split: test
+
+# ─────────────────────────────────────────────────────────
+# 检索 baseline（全本地，已实测可行）
+# ─────────────────────────────────────────────────────────
+retrieval:
+  embedder: BAAI/bge-m3
+  embed_device: mps            # M4 GPU 加速（实测 31ms/chunk）
+  reranker: BAAI/bge-reranker-v2-m3
+  rerank_device: mps
+  faiss_index: flat_ip         # 内积 + L2 归一化 = 余弦
+  top_k_recall: 10             # 召回数
+  top_k_rerank: 5              # 重排后取数
+
+# ─────────────────────────────────────────────────────────
+# E0 多规模检索池（H1 立论：长上下文 vs RAG 拐点）
+# ─────────────────────────────────────────────────────────
+e0_pool:
+  scales: [1e3, 1e4, 1e5, 1e6] # 检索池总 token 四档
+  dataset: musique
+  ensure_gold_in_pool: true
+
+# ─────────────────────────────────────────────────────────
+# 缓存与成本
+# ─────────────────────────────────────────────────────────
+cache:
+  request_cache_dir: cache/requests
+  index_cache_dir: cache/indices
+  enabled: true
+
+eval:
+  bootstrap_n: 1000
+  ci: 0.95
+  alpha: 0.01                  # 主结果显著性要求 p<0.01
+
+# ─────────────────────────────────────────────────────────
+# C2 生成式语义索引（架构决策.md 第六节）
+# 入库阶段一次性构建，缓存复用。C1 的检索引擎地基。
+# ─────────────────────────────────────────────────────────
+c2_index:
+  builder_role: generator          # 用哪个模型建索引（K3 或 Qwen3.8）
+  batch_size: 5                    # 一个 prompt 处理几个文档（控成本）
+  # 每文档生成的标注
+  generate:
+    hypothetical_questions: true   # HyDE 倒置：5-10 个可回答问题
+    entity_relation_triples: true  # subject-relation-object（不止实体名）
+    cross_doc_cooccurrence: true   # 跨文档实体共现图（本地计算，不调 LLM）
+    entity_types: true             # person/location/org/date/concept
+    summaries: true                # 多粒度摘要（sentence/paragraph）
+    relevance_self_desc: true      # 何种查询下应被召回
+  cache_dir: cache/generative_indices
+
+# ─────────────────────────────────────────────────────────
+# C2 三种检索后端（架构决策.md 第四节，作 ablation）
+# ─────────────────────────────────────────────────────────
+c2_backends:
+  A_llm_judge:                     # 后端 A：纯 LLM 判断（最准最贵）
+    enabled: true
+  B_semantic_embedding:            # 后端 B：对 hypothetical-Q embedding（非原文）
+    enabled: true
+    embed_model: BAAI/bge-m3       # 复用 retrieval 的 embedder
+  C_hybrid:                        # 后端 C：B 粗筛 top-20 + LLM 精排 top-5
+    enabled: true
+    filter_top_k: 20
+    rerank_top_k: 5
+
+# ─────────────────────────────────────────────────────────
+# C1 loop 策略（架构决策.md 第四节，作 ablation）
+# ─────────────────────────────────────────────────────────
+c1_strategies:
+  S1_pure_react:                   # 纯 ReAct + 极致工具
+    max_steps: 12
+  S2_reflect:                      # ReAct + 反思重规划
+    max_steps: 12
+    reflect_every: 4               # 每 4 步反思一次
+  S3_parallel_branches:            # ReAct + 并行分支
+    max_steps: 12
+    n_branches: 3
+  S4_preset_policy:                # 预设策略 + 固定 loop
+    policies: [single_hop, multi_hop, entity_lookup]

@@ -1,0 +1,208 @@
+{
+  "S1_B": {
+    "strategy": "S1",
+    "backend": "B",
+    "metrics": {
+      "em": {
+        "mean": 0.7,
+        "ci_lo": 0.4,
+        "ci_hi": 1.0,
+        "n": 10
+      },
+      "f1": {
+        "mean": 0.8966666666666667,
+        "ci_lo": 0.7898333333333334,
+        "ci_hi": 1.0,
+        "n": 10
+      },
+      "contains": {
+        "mean": 0.9,
+        "ci_lo": 0.75,
+        "ci_hi": 1.0,
+        "n": 10
+      },
+      "correct": {
+        "mean": 0.9,
+        "ci_lo": 0.7,
+        "ci_hi": 1.0,
+        "n": 10
+      },
+      "recall@5": {
+        "mean": 0.6,
+        "ci_lo": 0.3,
+        "ci_hi": 0.9,
+        "n": 10
+      }
+    },
+    "avg_steps": 2.5,
+    "avg_elapsed_s": 12.8,
+    "n_valid": 10,
+    "per_sample": [
+      {
+        "id": "A group of genetical",
+        "pred": "clone",
+        "gold": "a clone",
+        "retrieved_titles": [
+          "Distractor 1",
+          "Supporting science fact",
+          "Supporting science fact",
+          "Distractor 2",
+          "Distractor 2",
+          "Distractor 1",
+          "Supporting science fact",
+          "Supporting science fact"
+        ],
+        "gold_titles": [],
+        "n_steps": 4,
+        "n_collected": 8,
+        "elapsed_s": 32.796830892562866
+      },
+      {
+        "id": "Do motile cilia usua",
+        "pred": "large numbers",
+        "gold": "large",
+        "retrieved_titles": [
+          "Distractor 3",
+          "Distractor 2",
+          "Distractor 2",
+          "Supporting science fact",
+          "Distractor 1",
+          "Supporting science fact",
+          "Distractor 2",
+          "Distractor 1",
+          "Distractor 3"
+        ],
+        "gold_titles": [],
+        "n_steps": 4,
+        "n_collected": 9,
+        "elapsed_s": 21.447359800338745
+      },
+      {
+        "id": "What type of bonds d",
+        "pred": "single bonds",
+        "gold": "carbon-carbon single bonds",
+        "retrieved_titles": [
+          "Supporting science fact",
+          "Distractor 1",
+          "Distractor 3"
+        ],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 2,
+        "n_collected": 3,
+        "elapsed_s": 7.513958930969238
+      },
+      {
+        "id": "A convergent plate b",
+        "pred": "come toward each other",
+        "gold": "come toward each other",
+        "retrieved_titles": [
+          "Supporting science fact",
+          "Distractor 2",
+          "Distractor 1"
+        ],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 2,
+        "n_collected": 3,
+        "elapsed_s": 8.209352970123291
+      },
+      {
+        "id": "Upon reaching the po",
+        "pred": "neurotransmitter",
+        "gold": "neurotransmitter",
+        "retrieved_titles": [
+          "Distractor 1",
+          "Distractor 2",
+          "Supporting science fact",
+          "Supporting science fact",
+          "Distractor 2"
+        ],
+        "gold_titles": [],
+        "n_steps": 2,
+        "n_collected": 5,
+        "elapsed_s": 12.209207773208618
+      },
+      {
+        "id": "Trichomoniasis is ca",
+        "pred": "protozoa",
+        "gold": "protozoa",
+        "retrieved_titles": [
+          "Supporting science fact",
+          "Distractor 2",
+          "Distractor 3"
+        ],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 2,
+        "n_collected": 3,
+        "elapsed_s": 6.5053160190582275
+      },
+      {
+        "id": "The adrenal cortex d",
+        "pred": "kidneys",
+        "gold": "kidneys",
+        "retrieved_titles": [
+          "Supporting science fact",
+          "Distractor 1"
+        ],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 2,
+        "n_collected": 2,
+        "elapsed_s": 6.872750282287598
+      },
+      {
+        "id": "What is the lowest l",
+        "pred": "cell",
+        "gold": "the cell",
+        "retrieved_titles": [
+          "Distractor 2",
+          "Distractor 1",
+          "Distractor 3",
+          "Distractor 1",
+          "Supporting science fact",
+          "Distractor 3"
+        ],
+        "gold_titles": [],
+        "n_steps": 3,
+        "n_collected": 6,
+        "elapsed_s": 18.883326053619385
+      },
+      {
+        "id": "A fact or question i",
+        "pred": "testable",
+        "gold": "it is testable",
+        "retrieved_titles": [
+          "Supporting science fact",
+          "Distractor 3"
+        ],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 2,
+        "n_collected": 2,
+        "elapsed_s": 7.653532028198242
+      },
+      {
+        "id": "What do populations ",
+        "pred": "individuals",
+        "gold": "individuals",
+        "retrieved_titles": [
+          "Supporting science fact",
+          "Distractor 2"
+        ],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 2,
+        "n_collected": 2,
+        "elapsed_s": 5.689115047454834
+      }
+    ]
+  }
+}

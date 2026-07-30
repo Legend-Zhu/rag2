@@ -1,0 +1,13 @@
+{
+  "name": "test_dry_run",
+  "dataset": "musique",
+  "methods": [
+    "long_context",
+    "traditional_rag"
+  ],
+  "model": "kimi-k3",
+  "sample_n": 5,
+  "metrics": null,
+  "timestamp": 1785053636.424598,
+  "model_resolved": "kimi-k3"
+}

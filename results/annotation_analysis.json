@@ -1,0 +1,27 @@
+{
+  "results_source": "/Users/pfpman/ZCodeProject/results/ab_scale100.json",
+  "n_labeled": 100,
+  "human_dist": {
+    "SUPPORTED": 98,
+    "NOT_ENOUGH_INFO": 2
+  },
+  "c_vs_human_agreement": 0.96,
+  "c_vs_human_kappa": 0.1836734693877551,
+  "bad_claims": [
+    {
+      "idx": 15,
+      "human": "NOT_ENOUGH_INFO"
+    },
+    {
+      "idx": 21,
+      "human": "NOT_ENOUGH_INFO"
+    }
+  ],
+  "cond_vs_human": {
+    "A": 0.06,
+    "B1": 0.88,
+    "B2": 0.9,
+    "B3": 0.91,
+    "C": 0.96
+  }
+}

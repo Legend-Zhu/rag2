@@ -1,0 +1,242 @@
+[
+  {
+    "claim": "The pipeline consists of 7 sequential stages: detect(), extract(), build_graph(), cluster(), analyze(), report(), and export().",
+    "source_file": "ARCHITECTURE.md"
+  },
+  {
+    "claim": "Each stage communicates through plain Python dicts and NetworkX graphs with no shared state and no side effects outside the graphify-out/ directory.",
+    "source_file": "ARCHITECTURE.md"
+  },
+  {
+    "claim": "The extract() function returns a dictionary with 'nodes' and 'edges' keys, where each node has 'id', 'label', and 'source_file' fields and each edge has 'source', 'target', and 'type' fields.",
+    "source_file": "ARCHITECTURE.md"
+  },
+  {
+    "claim": "Module-top-level indirect_call sources and bash source/script-invocation targets that minted a node id from an absolute path are canonicalized to the root-relative node id in graph.json.",
+    "source_file": "CHANGELOG.md"
+  },
+  {
+    "claim": "The post-commit hook refuses to overwrite an existing graph.json if it is over the size cap or unparseable, matching the CLI behavior.",
+    "source_file": "CHANGELOG.md"
+  },
+  {
+    "claim": "Closure parameters in JS/TS (e.g., `rows.map(r => ...)`) now shadow outer names, preventing false indirect_call edges from binding to a corpus-wide callable of the same name.",
+    "source_file": "CHANGELOG.md"
+  },
+  {
+    "claim": "graphify achieves LOCOMO retrieval recall@10 of 0.497, approximately 10x mem0 (0.048) and above BM25 (0.362).",
+    "source_file": "BENCHMARKS.md"
+  },
+  {
+    "claim": "graphify's LOCOMO QA accuracy is 45.3%, which is within 4.4 percentage points of supermemory (49.7%) at about a tenth of supermemory's ingest cost ($1.40 vs $15.67).",
+    "source_file": "BENCHMARKS.md"
+  },
+  {
+    "claim": "graphify builds its graph index with zero LLM credits ($0), while the LOCOMO ingest cost is approximately $1.40.",
+    "source_file": "BENCHMARKS.md"
+  },
+  {
+    "claim": "The project is named Graphify and is hosted at graphify.com",
+    "source_file": "README.md"
+  },
+  {
+    "claim": "The project is maintained by the Graphify-Labs organization",
+    "source_file": "README.md"
+  },
+  {
+    "claim": "The project logo is hosted at https://raw.githubusercontent.com/Graphify-Labs/graphify/v8/docs/logo.png",
+    "source_file": "README.md"
+  },
+  {
+    "claim": "The project has a graphify knowledge graph stored at graphify-out/ directory",
+    "source_file": "AGENTS.md"
+  },
+  {
+    "claim": "The command `graphify update .` updates the graph using AST-only analysis with no API cost",
+    "source_file": "AGENTS.md"
+  },
+  {
+    "claim": "The file graphify-out/wiki/index.md can be navigated instead of reading raw files if it exists",
+    "source_file": "AGENTS.md"
+  },
+  {
+    "claim": "graphify runs as a Claude Code skill and optionally as a local MCP stdio server.",
+    "source_file": "SECURITY.md"
+  },
+  {
+    "claim": "safe_fetch() streams responses and aborts at 50 MB, and safe_fetch_text() aborts at 10 MB.",
+    "source_file": "SECURITY.md"
+  },
+  {
+    "claim": "security.validate_url() allows only http and https schemes, blocks private/loopback/link-local IPs, and blocks cloud metadata endpoints.",
+    "source_file": "SECURITY.md"
+  },
+  {
+    "claim": "Tree-sitter parses code files and extracts classes, functions, imports, call graphs, and inline comments in Pass 1.",
+    "source_file": "docs/how-it-works.md"
+  },
+  {
+    "claim": "Pass 1 supports 25 programming languages for code structure extraction.",
+    "source_file": "docs/how-it-works.md"
+  },
+  {
+    "claim": "Community detection uses the Leiden algorithm to group nodes by edge density without requiring embeddings.",
+    "source_file": "docs/how-it-works.md"
+  },
+  {
+    "claim": "The Docker MCP Toolkit catalog entry `sqlite-mcp-server` (image `mcp/sqlite-mcp-server`) is broken because its entrypoint `/app/.venv/bin/mcp-server-sqlite` does not exist in the published layer.",
+    "source_file": "docs/docker-mcp-sqlite.md"
+  },
+  {
+    "claim": "The `SQLite` catalog entry (`mcp/sqlite`) is marked 'Archived' in catalog metadata but boots and serves correctly.",
+    "source_file": "docs/docker-mcp-sqlite.md"
+  },
+  {
+    "claim": "The SQLite MCP server provides six tools: `read_query`, `write_query`, `create_table`, `list_tables`, `describe_table`, and `append_insight`.",
+    "source_file": "docs/docker-mcp-sqlite.md"
+  },
+  {
+    "claim": "graphify exposes graph structure, source files, node labels, and relationships via graph.json",
+    "source_file": "docs/node-summaries-rfc.md"
+  },
+  {
+    "claim": "graphify's behavior is offline and deterministic by default",
+    "source_file": "docs/node-summaries-rfc.md"
+  },
+  {
+    "claim": "graphify explain is a command that displays node information",
+    "source_file": "docs/node-summaries-rfc.md"
+  },
+  {
+    "claim": "The /graphify tool can turn any folder of files into a navigable knowledge graph with community detection.",
+    "source_file": "graphify/skill-windows.md"
+  },
+  {
+    "claim": "The /graphify tool supports cloning a GitHub repository by URL and running the full pipeline on it.",
+    "source_file": "graphify/skill-windows.md"
+  },
+  {
+    "claim": "The /graphify tool can build directed graphs that preserve edge direction (source→target) using the --directed flag.",
+    "source_file": "graphify/skill-windows.md"
+  },
+  {
+    "claim": "The /graphify tool can accept a GitHub repository URL and clone it before running the full pipeline.",
+    "source_file": "graphify/skill-trae.md"
+  },
+  {
+    "claim": "The /graphify tool generates three outputs: interactive HTML, GraphRAG-ready JSON, and a plain-language GRAPH_REPORT.md.",
+    "source_file": "graphify/skill-trae.md"
+  },
+  {
+    "claim": "The /graphify tool supports incremental updates via the --update flag, which re-extracts only new or changed files.",
+    "source_file": "graphify/skill-trae.md"
+  },
+  {
+    "claim": "The /graphify tool can turn any folder of files into a navigable knowledge graph with community detection, an interactive HTML output, a GraphRAG-ready JSON output, and a plain-language GRAPH_REPORT.md.",
+    "source_file": "graphify/skill-kilo.md"
+  },
+  {
+    "claim": "The /graphify tool supports cloning a GitHub repository by URL and running the full pipeline on it, including the ability to clone a specific branch using the --branch flag.",
+    "source_file": "graphify/skill-kilo.md"
+  },
+  {
+    "claim": "The /graphify tool supports an incremental --update mode that re-extracts only new or changed files.",
+    "source_file": "graphify/skill-kilo.md"
+  },
+  {
+    "claim": "Graphify generates three outputs: interactive HTML, GraphRAG-ready JSON, and a plain-language GRAPH_REPORT.md.",
+    "source_file": "graphify/skill-devin.md"
+  },
+  {
+    "claim": "Graphify supports incremental updates via --update flag, re-extracting only new or changed files.",
+    "source_file": "graphify/skill-devin.md"
+  },
+  {
+    "claim": "Graphify can export to Neo4j by generating cypher.txt or pushing directly via --neo4j-push.",
+    "source_file": "graphify/skill-devin.md"
+  },
+  {
+    "claim": "Graphify can turn any folder of files into a knowledge graph with community detection and three outputs: interactive HTML, GraphRAG-ready JSON, and a plain-language GRAPH_REPORT.md.",
+    "source_file": "graphify/skill-pi.md"
+  },
+  {
+    "claim": "Graphify can clone a GitHub repository and run the full pipeline on it using the command: /graphify https://github.com/<owner>/<repo>",
+    "source_file": "graphify/skill-pi.md"
+  },
+  {
+    "claim": "Graphify supports an incremental update mode (--update flag) that re-extracts only new or changed files.",
+    "source_file": "graphify/skill-pi.md"
+  },
+  {
+    "claim": "graphify outputs three artifacts: an interactive HTML visualization, a GraphRAG-ready JSON file, and a plain-language GRAPH_REPORT.md.",
+    "source_file": "graphify/skill-codex.md"
+  },
+  {
+    "claim": "graphify can clone a GitHub repository and run the full pipeline on it using a command like /graphify https://github.com/<owner>/<repo>.",
+    "source_file": "graphify/skill-codex.md"
+  },
+  {
+    "claim": "graphify supports an incremental update mode (--update) that re-extracts only new or changed files.",
+    "source_file": "graphify/skill-codex.md"
+  },
+  {
+    "claim": "The /graphify pipeline produces three outputs: interactive HTML, GraphRAG-ready JSON, and a plain-language GRAPH_REPORT.md.",
+    "source_file": "graphify/skill-kiro.md"
+  },
+  {
+    "claim": "The tool supports cloning a GitHub repository and running the full pipeline on it using the command `/graphify https://github.com/<owner>/<repo>`.",
+    "source_file": "graphify/skill-kiro.md"
+  },
+  {
+    "claim": "The tool supports incremental updates via the `--update` flag, which re-extracts only new or changed files.",
+    "source_file": "graphify/skill-kiro.md"
+  },
+  {
+    "claim": "graphify can accept a GitHub repository URL and clone it before running the full pipeline.",
+    "source_file": "graphify/skill-copilot.md"
+  },
+  {
+    "claim": "graphify supports merging multiple repositories into one cross-repo knowledge graph via the command `graphify <url1> <url2> ...`.",
+    "source_file": "graphify/skill-copilot.md"
+  },
+  {
+    "claim": "graphify can export an SVG version of the graph for embedding in Notion or GitHub via the `--svg` flag.",
+    "source_file": "graphify/skill-copilot.md"
+  },
+  {
+    "claim": "The /graphify tool can process a GitHub repository URL and run the full pipeline on the cloned repo.",
+    "source_file": "graphify/skill-amp.md"
+  },
+  {
+    "claim": "The tool supports three output formats: interactive HTML, GraphRAG-ready JSON, and a plain-language GRAPH_REPORT.md.",
+    "source_file": "graphify/skill-amp.md"
+  },
+  {
+    "claim": "The /graphify tool supports incremental updates via --update flag, which re-extracts only new or changed files.",
+    "source_file": "graphify/skill-amp.md"
+  },
+  {
+    "claim": "The graphify tool can clone a GitHub repository and run the full pipeline on it using the command `/graphify https://github.com/<owner>/<repo>`",
+    "source_file": "graphify/skill.md"
+  },
+  {
+    "claim": "The graphify tool supports incremental updates by re-extracting only new or changed files when run with the `--update` flag",
+    "source_file": "graphify/skill.md"
+  },
+  {
+    "claim": "The graphify tool outputs three formats: interactive HTML, GraphRAG-ready JSON, and a plain-language GRAPH_REPORT.md",
+    "source_file": "graphify/skill.md"
+  },
+  {
+    "claim": "The /graphify tool can turn any folder of files into a knowledge graph with community detection and three outputs: interactive HTML, GraphRAG-ready JSON, and a plain-language GRAPH_REPORT.md.",
+    "source_file": "graphify/skill-opencode.md"
+  },
+  {
+    "claim": "The /graphify tool supports cloning a GitHub repository by URL and running the full pipeline on it.",
+    "source_file": "graphify/skill-opencode.md"
+  },
+  {
+    "claim": "The /graphify tool supports incremental updates via the --update flag, re-extracting only new or changed files.",
+    "source_file": "graphify/skill-opencode.md"
+  }
+]

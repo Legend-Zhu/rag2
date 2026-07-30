@@ -1,0 +1,3142 @@
+{
+  "scale_1000": {
+    "long_context": {
+      "per_sample": [
+        {
+          "id": "2hop__67660_81007",
+          "pred": "Tracy McConnell, “The Mother.”",
+          "gold": "Tracy McConnell",
+          "overflow": false,
+          "completion_tokens": 166
+        },
+        {
+          "id": "2hop__92051_827343",
+          "pred": "Lana Wood",
+          "gold": "Lana Wood",
+          "overflow": false,
+          "completion_tokens": 110
+        },
+        {
+          "id": "2hop__144150_82341",
+          "pred": "Northern Florida.",
+          "gold": "in Northern Florida",
+          "overflow": false,
+          "completion_tokens": 154
+        },
+        {
+          "id": "2hop__83938_5666",
+          "pred": "Boris Yeltsin.",
+          "gold": "Yeltsin",
+          "overflow": false,
+          "completion_tokens": 283
+        },
+        {
+          "id": "2hop__167577_31122",
+          "pred": "The 18th century.",
+          "gold": "18th",
+          "overflow": false,
+          "completion_tokens": 126
+        },
+        {
+          "id": "2hop__9238_9237",
+          "pred": "September 2012",
+          "gold": "September 2012",
+          "overflow": false,
+          "completion_tokens": 294
+        },
+        {
+          "id": "2hop__107905_110222",
+          "pred": "10 June 1819",
+          "gold": "10 June 1819",
+          "overflow": false,
+          "completion_tokens": 125
+        },
+        {
+          "id": "2hop__145203_34088",
+          "pred": "Tucson Raceway Park.",
+          "gold": "Tucson Raceway Park",
+          "overflow": false,
+          "completion_tokens": 117
+        },
+        {
+          "id": "2hop__498061_88622",
+          "pred": "ADM Michael S. Rogers, Director of the National Security Agency.",
+          "gold": "ADM Michael S. Rogers",
+          "overflow": false,
+          "completion_tokens": 256
+        },
+        {
+          "id": "3hop1__33845_42197_18397",
+          "pred": "Mao Zedong declared it to the Politburo.",
+          "gold": "the Politburo",
+          "overflow": false,
+          "completion_tokens": 257
+        },
+        {
+          "id": "2hop__822965_165304",
+          "pred": "Kim Braden",
+          "gold": "Kim Braden",
+          "overflow": false,
+          "completion_tokens": 151
+        },
+        {
+          "id": "2hop__286093_361551",
+          "pred": "Bay County",
+          "gold": "Bay County",
+          "overflow": false,
+          "completion_tokens": 81
+        },
+        {
+          "id": "2hop__580231_162399",
+          "pred": "15 December 1950",
+          "gold": "15 December 1950",
+          "overflow": false,
+          "completion_tokens": 110
+        },
+        {
+          "id": "2hop__461639_83837",
+          "pred": "Karen Fairchild",
+          "gold": "Karen Fairchild",
+          "overflow": false,
+          "completion_tokens": 115
+        },
+        {
+          "id": "2hop__83785_461854",
+          "pred": "Rhett Butler",
+          "gold": "Laurence Olivier",
+          "overflow": false,
+          "completion_tokens": 1265
+        },
+        {
+          "id": "4hop1__802394_153080_159767_81096",
+          "pred": "Mario Andretti",
+          "gold": "Mario Andretti",
+          "overflow": false,
+          "completion_tokens": 1368
+        },
+        {
+          "id": "2hop__485221_544917",
+          "pred": "I don't know.",
+          "gold": "Lake Superior",
+          "overflow": false,
+          "completion_tokens": 2583
+        },
+        {
+          "id": "2hop__38229_84500",
+          "pred": "North Atlantic Treaty Organization",
+          "gold": "North Atlantic Treaty Organization",
+          "overflow": false,
+          "completion_tokens": 109
+        },
+        {
+          "id": "2hop__822113_91104",
+          "pred": "ATS-6 (Applications Technology Satellite-6)",
+          "gold": "ATS - 6 (Applications Technology Satellite - 6)",
+          "overflow": false,
+          "completion_tokens": 1321
+        },
+        {
+          "id": "2hop__106864_80460",
+          "pred": "207.77 million people",
+          "gold": "207.77 million people",
+          "overflow": false,
+          "completion_tokens": 123
+        },
+        {
+          "id": "3hop1__67704_237521_291682",
+          "pred": "Liza Minnelli",
+          "gold": "Liza Minnelli",
+          "overflow": false,
+          "completion_tokens": 255
+        },
+        {
+          "id": "2hop__525242_52835",
+          "pred": "John D. Loudermilk",
+          "gold": "John D. Loudermilk",
+          "overflow": false,
+          "completion_tokens": 131
+        },
+        {
+          "id": "4hop1__860115_798482_131926_13165",
+          "pred": "Treaty of Paris",
+          "gold": "Treaty of Paris",
+          "overflow": false,
+          "completion_tokens": 158
+        },
+        {
+          "id": "2hop__444265_82341",
+          "pred": "Northern Florida.",
+          "gold": "in Northern Florida",
+          "overflow": false,
+          "completion_tokens": 154
+        },
+        {
+          "id": "2hop__647996_551681",
+          "pred": "Emilia Galotti",
+          "gold": "Emilia Galotti",
+          "overflow": false,
+          "completion_tokens": 97
+        },
+        {
+          "id": "2hop__58168_38663",
+          "pred": "54.7%",
+          "gold": "54.7%",
+          "overflow": false,
+          "completion_tokens": 903
+        },
+        {
+          "id": "3hop1__28527_42197_18397",
+          "pred": "Korea.",
+          "gold": "the Politburo",
+          "overflow": false,
+          "completion_tokens": 1429
+        },
+        {
+          "id": "3hop1__307152_400692_51423",
+          "pred": "I don't know.",
+          "gold": "Casa Loma",
+          "overflow": false,
+          "completion_tokens": 383
+        },
+        {
+          "id": "2hop__704217_82341",
+          "pred": "Ocala, in Northern Florida.",
+          "gold": "in Northern Florida",
+          "overflow": false,
+          "completion_tokens": 189
+        },
+        {
+          "id": "2hop__808562_72813",
+          "pred": "Bobby Brown, a Western District uniformed officer.",
+          "gold": "a Western District uniformed officer",
+          "overflow": false,
+          "completion_tokens": 179
+        }
+      ],
+      "metrics": {
+        "em": {
+          "mean": 0.5333333333333333,
+          "ci_lo": 0.3333333333333333,
+          "ci_hi": 0.7333333333333333,
+          "n": 30
+        },
+        "f1": {
+          "mean": 0.7519413919413919,
+          "ci_lo": 0.6194810744810745,
+          "ci_hi": 0.8696190476190478,
+          "n": 30
+        },
+        "correct": {
+          "mean": 0.8,
+          "ci_lo": 0.6333333333333333,
+          "ci_hi": 0.9333333333333333,
+          "n": 30
+        },
+        "recall@5": {
+          "mean": 0.0,
+          "ci_lo": 0.0,
+          "ci_hi": 0.0,
+          "n": 30
+        }
+      }
+    },
+    "traditional_rag": {
+      "per_sample": [
+        {
+          "id": "2hop__67660_81007",
+          "pred": "Tracy McConnell, “The Mother.”",
+          "gold": "Tracy McConnell",
+          "retrieved_titles": [
+            "The Mother (How I Met Your Mother)",
+            "How I Met Your Mother",
+            "Charleston, South Carolina",
+            "Lacoochee, Florida",
+            "Mian Haji Sahib"
+          ],
+          "gold_titles": [
+            "The Mother (How I Met Your Mother)",
+            "How I Met Your Mother"
+          ],
+          "completion_tokens": 161
+        },
+        {
+          "id": "2hop__92051_827343",
+          "pred": "Lana Wood",
+          "gold": "Lana Wood",
+          "retrieved_titles": [
+            "Miracle on 34th Street",
+            "Five Finger Exercise",
+            "Gaius Julius Priscus",
+            "Super Grit Cowboy Band",
+            "2005 FA Cup Final"
+          ],
+          "gold_titles": [
+            "Five Finger Exercise",
+            "Miracle on 34th Street"
+          ],
+          "completion_tokens": 78
+        },
+        {
+          "id": "2hop__144150_82341",
+          "pred": "Northern Florida.",
+          "gold": "in Northern Florida",
+          "retrieved_titles": [
+            "Tom Denney",
+            "Ocala, Florida",
+            "Tennessee",
+            "WOKH",
+            "Indonesia–Timor Leste Commission of Truth and Friendship"
+          ],
+          "gold_titles": [
+            "Ocala, Florida",
+            "Tom Denney"
+          ],
+          "completion_tokens": 138
+        },
+        {
+          "id": "2hop__83938_5666",
+          "pred": "Yeltsin",
+          "gold": "Yeltsin",
+          "retrieved_titles": [
+            "Kamchatka Peninsula",
+            "Russian Soviet Federative Socialist Republic",
+            "Gaius Julius Priscus",
+            "Lake District",
+            "Super Grit Cowboy Band"
+          ],
+          "gold_titles": [
+            "Kamchatka Peninsula",
+            "Russian Soviet Federative Socialist Republic"
+          ],
+          "completion_tokens": 499
+        },
+        {
+          "id": "2hop__167577_31122",
+          "pred": "The 18th century.",
+          "gold": "18th",
+          "retrieved_titles": [
+            "A Treatise Concerning the Principles of Human Knowledge",
+            "Idealism",
+            "Ed Barnowski",
+            "Lacoochee, Florida",
+            "New York City"
+          ],
+          "gold_titles": [
+            "A Treatise Concerning the Principles of Human Knowledge",
+            "Idealism"
+          ],
+          "completion_tokens": 133
+        },
+        {
+          "id": "2hop__9238_9237",
+          "pred": "September 2012",
+          "gold": "September 2012",
+          "retrieved_titles": [
+            "Marshall Islands",
+            "Marshall Islands",
+            "Lacoochee, Florida",
+            "New York City",
+            "Krasnovishersky District"
+          ],
+          "gold_titles": [
+            "Marshall Islands",
+            "Marshall Islands"
+          ],
+          "completion_tokens": 164
+        },
+        {
+          "id": "2hop__107905_110222",
+          "pred": "10 June 1819",
+          "gold": "10 June 1819",
+          "retrieved_titles": [
+            "A Burial At Ornans",
+            "Gustave Courbet",
+            "Heidelberg, Pennsylvania",
+            "Lacoochee, Florida",
+            "Myanmar"
+          ],
+          "gold_titles": [
+            "A Burial At Ornans",
+            "Gustave Courbet"
+          ],
+          "completion_tokens": 96
+        },
+        {
+          "id": "2hop__145203_34088",
+          "pred": "Tucson Raceway Park.",
+          "gold": "Tucson Raceway Park",
+          "retrieved_titles": [
+            "Ulysses Kay",
+            "Tucson, Arizona",
+            "Lake District",
+            "Super Grit Cowboy Band",
+            "2005 FA Cup Final"
+          ],
+          "gold_titles": [
+            "Ulysses Kay",
+            "Tucson, Arizona"
+          ],
+          "completion_tokens": 112
+        },
+        {
+          "id": "2hop__498061_88622",
+          "pred": "ADM Michael S. Rogers USN",
+          "gold": "ADM Michael S. Rogers",
+          "retrieved_titles": [
+            "ThinThread",
+            "Director of the National Security Agency",
+            "Tucson, Arizona",
+            "Jeju (woreda)",
+            "Menomonie (town), Wisconsin"
+          ],
+          "gold_titles": [
+            "Director of the National Security Agency",
+            "ThinThread"
+          ],
+          "completion_tokens": 1064
+        },
+        {
+          "id": "3hop1__33845_42197_18397",
+          "pred": "He declared it to the Politburo.",
+          "gold": "the Politburo",
+          "retrieved_titles": [
+            "Korean War",
+            "Central Intelligence Agency",
+            "Imperialism"
+          ],
+          "gold_titles": [
+            "Korean War",
+            "Imperialism",
+            "Central Intelligence Agency"
+          ],
+          "completion_tokens": 430
+        },
+        {
+          "id": "2hop__822965_165304",
+          "pred": "Kim Braden",
+          "gold": "Kim Braden",
+          "retrieved_titles": [
+            "Love in Pawn",
+            "B-And-B",
+            "Super Grit Cowboy Band",
+            "2005 FA Cup Final",
+            "Lake District"
+          ],
+          "gold_titles": [
+            "Love in Pawn",
+            "B-And-B"
+          ],
+          "completion_tokens": 162
+        },
+        {
+          "id": "2hop__286093_361551",
+          "pred": "Bay County",
+          "gold": "Bay County",
+          "retrieved_titles": [
+            "James Finch",
+            "Lake District",
+            "Lynn Haven, Florida",
+            "Super Grit Cowboy Band",
+            "2005 FA Cup Final"
+          ],
+          "gold_titles": [
+            "James Finch",
+            "Lynn Haven, Florida"
+          ],
+          "completion_tokens": 72
+        },
+        {
+          "id": "2hop__580231_162399",
+          "pred": "15 December 1950",
+          "gold": "15 December 1950",
+          "retrieved_titles": [
+            "Dahyabhai Patel",
+            "Vallabhbhai Patel",
+            "Hellenistic period",
+            "Toilet paper"
+          ],
+          "gold_titles": [
+            "Vallabhbhai Patel",
+            "Dahyabhai Patel"
+          ],
+          "completion_tokens": 111
+        },
+        {
+          "id": "2hop__461639_83837",
+          "pred": "Karen Fairchild",
+          "gold": "Karen Fairchild",
+          "retrieved_titles": [
+            "Home Alone Tonight",
+            "Country Man",
+            "Dancing with the Stars (American season 24)",
+            "Heidelberg, Pennsylvania",
+            "Lacoochee, Florida"
+          ],
+          "gold_titles": [
+            "Home Alone Tonight",
+            "Country Man"
+          ],
+          "completion_tokens": 118
+        },
+        {
+          "id": "2hop__83785_461854",
+          "pred": "Rhett Butler",
+          "gold": "Laurence Olivier",
+          "retrieved_titles": [
+            "Gone with the Wind (film)",
+            "Normans",
+            "Darlings of the Gods",
+            "Dancing with the Stars (American season 24)",
+            "USS Goff (DD-247)"
+          ],
+          "gold_titles": [
+            "Gone with the Wind (film)",
+            "Darlings of the Gods"
+          ],
+          "completion_tokens": 419
+        },
+        {
+          "id": "4hop1__802394_153080_159767_81096",
+          "pred": "Mario Andretti",
+          "gold": "Mario Andretti",
+          "retrieved_titles": [
+            "Mingus Plays Piano",
+            "Desert Diamond West Valley Phoenix Grand Prix",
+            "Arizona",
+            "Charles Mingus",
+            "USS Mahan (DDG-42)"
+          ],
+          "gold_titles": [
+            "Arizona",
+            "Mingus Plays Piano",
+            "Charles Mingus",
+            "Desert Diamond West Valley Phoenix Grand Prix"
+          ],
+          "completion_tokens": 1486
+        },
+        {
+          "id": "2hop__485221_544917",
+          "pred": "I don't know.",
+          "gold": "Lake Superior",
+          "retrieved_titles": [
+            "Coffee Swamp",
+            "Lake District",
+            "Washington Island (Michigan)",
+            "2005 FA Cup Final",
+            "Super Grit Cowboy Band"
+          ],
+          "gold_titles": [
+            "Washington Island (Michigan)",
+            "Coffee Swamp"
+          ],
+          "completion_tokens": 2365
+        },
+        {
+          "id": "2hop__38229_84500",
+          "pred": "North Atlantic Treaty Organization",
+          "gold": "North Atlantic Treaty Organization",
+          "retrieved_titles": [
+            "Dwight D. Eisenhower",
+            "NATO",
+            "Mar mine",
+            "Atlanta in the American Civil War",
+            "States of Nigeria"
+          ],
+          "gold_titles": [
+            "NATO",
+            "Dwight D. Eisenhower"
+          ],
+          "completion_tokens": 122
+        },
+        {
+          "id": "2hop__822113_91104",
+          "pred": "ATS-6 (Applications Technology Satellite-6)",
+          "gold": "ATS - 6 (Applications Technology Satellite - 6)",
+          "retrieved_titles": [
+            "GSAT-7",
+            "ATS-6",
+            "GoPro",
+            "Ed Barnowski",
+            "Lacoochee, Florida"
+          ],
+          "gold_titles": [
+            "GSAT-7",
+            "ATS-6"
+          ],
+          "completion_tokens": 667
+        },
+        {
+          "id": "2hop__106864_80460",
+          "pred": "207.77 million people",
+          "gold": "207.77 million people",
+          "retrieved_titles": [
+            "Bedari",
+            "Demographics of Pakistan",
+            "Arrondissement of Veurne",
+            "Heidelberg, Pennsylvania",
+            "Tropical cyclone effects in Europe"
+          ],
+          "gold_titles": [
+            "Demographics of Pakistan",
+            "Bedari"
+          ],
+          "completion_tokens": 136
+        },
+        {
+          "id": "3hop1__67704_237521_291682",
+          "pred": "Liza Minnelli",
+          "gold": "Liza Minnelli",
+          "retrieved_titles": [
+            "Michael Jackson: The Life of an Icon",
+            "Rock with You",
+            "Liza and David",
+            "Liliana Mumy",
+            "Normans"
+          ],
+          "gold_titles": [
+            "Liza and David",
+            "Rock with You",
+            "Michael Jackson: The Life of an Icon"
+          ],
+          "completion_tokens": 222
+        },
+        {
+          "id": "2hop__525242_52835",
+          "pred": "John D. Loudermilk",
+          "gold": "John D. Loudermilk",
+          "retrieved_titles": [
+            "Happy Pills (song)",
+            "Turn Me On (Mark Dinning song)",
+            "Pacific War series",
+            "Ed Barnowski",
+            "Lacoochee, Florida"
+          ],
+          "gold_titles": [
+            "Turn Me On (Mark Dinning song)",
+            "Happy Pills (song)"
+          ],
+          "completion_tokens": 106
+        },
+        {
+          "id": "4hop1__860115_798482_131926_13165",
+          "pred": "The Treaty of Paris.",
+          "gold": "Treaty of Paris",
+          "retrieved_titles": [
+            "Military history of the United States",
+            "Elizabeth Berg (author)",
+            "Minneapolis",
+            "Newgate Education Center"
+          ],
+          "gold_titles": [
+            "Elizabeth Berg (author)",
+            "Newgate Education Center",
+            "Military history of the United States",
+            "Minneapolis"
+          ],
+          "completion_tokens": 160
+        },
+        {
+          "id": "2hop__444265_82341",
+          "pred": "Northern Florida.",
+          "gold": "in Northern Florida",
+          "retrieved_titles": [
+            "Tom Denney",
+            "Ocala, Florida",
+            "Tennessee",
+            "WOKH",
+            "Indonesia–Timor Leste Commission of Truth and Friendship"
+          ],
+          "gold_titles": [
+            "Ocala, Florida",
+            "Tom Denney"
+          ],
+          "completion_tokens": 138
+        },
+        {
+          "id": "2hop__647996_551681",
+          "pred": "Emilia Galotti",
+          "gold": "Emilia Galotti",
+          "retrieved_titles": [
+            "Miss Sara Sampson",
+            "Emilia Galotti",
+            "Super Grit Cowboy Band",
+            "Gaius Julius Priscus",
+            "Lake District"
+          ],
+          "gold_titles": [
+            "Miss Sara Sampson",
+            "Emilia Galotti"
+          ],
+          "completion_tokens": 97
+        },
+        {
+          "id": "2hop__58168_38663",
+          "pred": "54.7%",
+          "gold": "54.7%",
+          "retrieved_titles": [
+            "Tanzania",
+            "Unemployment in the United States",
+            "Heidelberg, Pennsylvania",
+            "Lacoochee, Florida",
+            "USS Kilty (DD-137)"
+          ],
+          "gold_titles": [
+            "Tanzania",
+            "Unemployment in the United States"
+          ],
+          "completion_tokens": 715
+        },
+        {
+          "id": "3hop1__28527_42197_18397",
+          "pred": "He reported to the Politburo that he would intervene in Korea.",
+          "gold": "the Politburo",
+          "retrieved_titles": [
+            "Korean War",
+            "Estonia",
+            "Imperialism"
+          ],
+          "gold_titles": [
+            "Estonia",
+            "Korean War",
+            "Imperialism"
+          ],
+          "completion_tokens": 1203
+        },
+        {
+          "id": "3hop1__307152_400692_51423",
+          "pred": "I don't know.",
+          "gold": "Casa Loma",
+          "retrieved_titles": [
+            "Fall (Serena Ryder song)",
+            "Casa Loma",
+            "Papa Roach",
+            "Sekou Lumumba",
+            "Body Talk Pt. 2"
+          ],
+          "gold_titles": [
+            "Sekou Lumumba",
+            "Casa Loma",
+            "Fall (Serena Ryder song)"
+          ],
+          "completion_tokens": 836
+        },
+        {
+          "id": "2hop__704217_82341",
+          "pred": "Ocala, in Northern Florida.",
+          "gold": "in Northern Florida",
+          "retrieved_titles": [
+            "Sean Hampton",
+            "Ocala, Florida",
+            "Buckingham Palace",
+            "Punjab, Pakistan",
+            "Carver Ranches, West Park, Florida"
+          ],
+          "gold_titles": [
+            "Sean Hampton",
+            "Ocala, Florida"
+          ],
+          "completion_tokens": 110
+        },
+        {
+          "id": "2hop__808562_72813",
+          "pred": "A Western District uniformed officer.",
+          "gold": "a Western District uniformed officer",
+          "retrieved_titles": [
+            "Don't Be Cruel (Bobby Brown song)",
+            "Police of The Wire",
+            "Ed Barnowski",
+            "Robert Swirsky",
+            "Ocala, Florida"
+          ],
+          "gold_titles": [
+            "Police of The Wire",
+            "Don't Be Cruel (Bobby Brown song)"
+          ],
+          "completion_tokens": 273
+        }
+      ],
+      "metrics": {
+        "em": {
+          "mean": 0.6,
+          "ci_lo": 0.43333333333333335,
+          "ci_hi": 0.7666666666666667,
+          "n": 30
+        },
+        "f1": {
+          "mean": 0.7864838864838865,
+          "ci_lo": 0.6531346801346802,
+          "ci_hi": 0.8982089947089947,
+          "n": 30
+        },
+        "correct": {
+          "mean": 0.8,
+          "ci_lo": 0.6333333333333333,
+          "ci_hi": 0.9333333333333333,
+          "n": 30
+        },
+        "recall@5": {
+          "mean": 1.0,
+          "ci_lo": 1.0,
+          "ci_hi": 1.0,
+          "n": 30
+        }
+      }
+    }
+  },
+  "scale_10000": {
+    "long_context": {
+      "per_sample": [
+        {
+          "id": "2hop__67660_81007",
+          "pred": "Tracy McConnell, “The Mother.”",
+          "gold": "Tracy McConnell",
+          "overflow": false,
+          "completion_tokens": 171
+        },
+        {
+          "id": "2hop__92051_827343",
+          "pred": "Lana Wood",
+          "gold": "Lana Wood",
+          "overflow": false,
+          "completion_tokens": 79
+        },
+        {
+          "id": "2hop__144150_82341",
+          "pred": "Northern Florida",
+          "gold": "in Northern Florida",
+          "overflow": false,
+          "completion_tokens": 200
+        },
+        {
+          "id": "2hop__83938_5666",
+          "pred": "Boris Yeltsin",
+          "gold": "Yeltsin",
+          "overflow": false,
+          "completion_tokens": 198
+        },
+        {
+          "id": "2hop__167577_31122",
+          "pred": "18th century",
+          "gold": "18th",
+          "overflow": false,
+          "completion_tokens": 169
+        },
+        {
+          "id": "2hop__9238_9237",
+          "pred": "September 2012",
+          "gold": "September 2012",
+          "overflow": false,
+          "completion_tokens": 131
+        },
+        {
+          "id": "2hop__107905_110222",
+          "pred": "10 June 1819",
+          "gold": "10 June 1819",
+          "overflow": false,
+          "completion_tokens": 118
+        },
+        {
+          "id": "2hop__145203_34088",
+          "pred": "Tucson Raceway Park.",
+          "gold": "Tucson Raceway Park",
+          "overflow": false,
+          "completion_tokens": 131
+        },
+        {
+          "id": "2hop__498061_88622",
+          "pred": "ADM Michael S. Rogers, Director of the National Security Agency.",
+          "gold": "ADM Michael S. Rogers",
+          "overflow": false,
+          "completion_tokens": 367
+        },
+        {
+          "id": "3hop1__33845_42197_18397",
+          "pred": "He declared it to the Politburo.",
+          "gold": "the Politburo",
+          "overflow": false,
+          "completion_tokens": 426
+        },
+        {
+          "id": "2hop__822965_165304",
+          "pred": "Kim Braden",
+          "gold": "Kim Braden",
+          "overflow": false,
+          "completion_tokens": 157
+        },
+        {
+          "id": "2hop__286093_361551",
+          "pred": "Bay County",
+          "gold": "Bay County",
+          "overflow": false,
+          "completion_tokens": 79
+        },
+        {
+          "id": "2hop__580231_162399",
+          "pred": "15 December 1950",
+          "gold": "15 December 1950",
+          "overflow": false,
+          "completion_tokens": 104
+        },
+        {
+          "id": "2hop__461639_83837",
+          "pred": "Karen Fairchild",
+          "gold": "Karen Fairchild",
+          "overflow": false,
+          "completion_tokens": 169
+        },
+        {
+          "id": "2hop__83785_461854",
+          "pred": "Rhett Butler.",
+          "gold": "Laurence Olivier",
+          "overflow": false,
+          "completion_tokens": 1364
+        },
+        {
+          "id": "4hop1__802394_153080_159767_81096",
+          "pred": "Mario Andretti",
+          "gold": "Mario Andretti",
+          "overflow": false,
+          "completion_tokens": 4021
+        },
+        {
+          "id": "2hop__485221_544917",
+          "pred": "Lake Superior",
+          "gold": "Lake Superior",
+          "overflow": false,
+          "completion_tokens": 2555
+        },
+        {
+          "id": "2hop__38229_84500",
+          "pred": "North Atlantic Treaty Organization",
+          "gold": "North Atlantic Treaty Organization",
+          "overflow": false,
+          "completion_tokens": 150
+        },
+        {
+          "id": "2hop__822113_91104",
+          "pred": "ATS-6 (Applications Technology Satellite-6)",
+          "gold": "ATS - 6 (Applications Technology Satellite - 6)",
+          "overflow": false,
+          "completion_tokens": 1190
+        },
+        {
+          "id": "2hop__106864_80460",
+          "pred": "207.77 million people",
+          "gold": "207.77 million people",
+          "overflow": false,
+          "completion_tokens": 132
+        },
+        {
+          "id": "3hop1__67704_237521_291682",
+          "pred": "Liza Minnelli",
+          "gold": "Liza Minnelli",
+          "overflow": false,
+          "completion_tokens": 290
+        },
+        {
+          "id": "2hop__525242_52835",
+          "pred": "John D. Loudermilk",
+          "gold": "John D. Loudermilk",
+          "overflow": false,
+          "completion_tokens": 134
+        },
+        {
+          "id": "4hop1__860115_798482_131926_13165",
+          "pred": "Treaty of Paris",
+          "gold": "Treaty of Paris",
+          "overflow": false,
+          "completion_tokens": 179
+        },
+        {
+          "id": "2hop__444265_82341",
+          "pred": "Northern Florida",
+          "gold": "in Northern Florida",
+          "overflow": false,
+          "completion_tokens": 200
+        },
+        {
+          "id": "2hop__647996_551681",
+          "pred": "Emilia Galotti",
+          "gold": "Emilia Galotti",
+          "overflow": false,
+          "completion_tokens": 100
+        },
+        {
+          "id": "2hop__58168_38663",
+          "pred": "54.7%",
+          "gold": "54.7%",
+          "overflow": false,
+          "completion_tokens": 895
+        },
+        {
+          "id": "3hop1__28527_42197_18397",
+          "pred": "Mao Zedong reported to the Politburo that he would intervene in Korea.",
+          "gold": "the Politburo",
+          "overflow": false,
+          "completion_tokens": 2299
+        },
+        {
+          "id": "3hop1__307152_400692_51423",
+          "pred": "I don't know",
+          "gold": "Casa Loma",
+          "overflow": false,
+          "completion_tokens": 1246
+        },
+        {
+          "id": "2hop__704217_82341",
+          "pred": "Ocala, located in Northern Florida.",
+          "gold": "in Northern Florida",
+          "overflow": false,
+          "completion_tokens": 93
+        },
+        {
+          "id": "2hop__808562_72813",
+          "pred": "Bobby Brown, a Western District uniformed officer.",
+          "gold": "a Western District uniformed officer",
+          "overflow": false,
+          "completion_tokens": 1229
+        }
+      ],
+      "metrics": {
+        "em": {
+          "mean": 0.5666666666666667,
+          "ci_lo": 0.36666666666666664,
+          "ci_hi": 0.7333333333333333,
+          "n": 30
+        },
+        "f1": {
+          "mean": 0.7888461538461539,
+          "ci_lo": 0.6738322649572651,
+          "ci_hi": 0.8966933760683761,
+          "n": 30
+        },
+        "correct": {
+          "mean": 0.8333333333333334,
+          "ci_lo": 0.7,
+          "ci_hi": 0.9341666666666659,
+          "n": 30
+        },
+        "recall@5": {
+          "mean": 0.0,
+          "ci_lo": 0.0,
+          "ci_hi": 0.0,
+          "n": 30
+        }
+      }
+    },
+    "traditional_rag": {
+      "per_sample": [
+        {
+          "id": "2hop__67660_81007",
+          "pred": "Tracy McConnell, “The Mother.”",
+          "gold": "Tracy McConnell",
+          "retrieved_titles": [
+            "The Mother (How I Met Your Mother)",
+            "How I Met Your Mother",
+            "Jim Halpert",
+            "Karma (How I Met Your Mother)",
+            "James Meredith"
+          ],
+          "gold_titles": [
+            "The Mother (How I Met Your Mother)",
+            "How I Met Your Mother"
+          ],
+          "completion_tokens": 159
+        },
+        {
+          "id": "2hop__92051_827343",
+          "pred": "Lana Wood",
+          "gold": "Lana Wood",
+          "retrieved_titles": [
+            "Miracle on 34th Street",
+            "Five Finger Exercise",
+            "James G. Sterchi",
+            "Gaius Julius Priscus",
+            "The Suite Life Sets Sail"
+          ],
+          "gold_titles": [
+            "Five Finger Exercise",
+            "Miracle on 34th Street"
+          ],
+          "completion_tokens": 104
+        },
+        {
+          "id": "2hop__144150_82341",
+          "pred": "Northern Florida.",
+          "gold": "in Northern Florida",
+          "retrieved_titles": [
+            "Tom Denney",
+            "Ocala, Florida",
+            "Super Bowl XXIX",
+            "Miami",
+            "Janesville Assembly Plant"
+          ],
+          "gold_titles": [
+            "Ocala, Florida",
+            "Tom Denney"
+          ],
+          "completion_tokens": 110
+        },
+        {
+          "id": "2hop__83938_5666",
+          "pred": "Yeltsin",
+          "gold": "Yeltsin",
+          "retrieved_titles": [
+            "Kamchatka Peninsula",
+            "Jefferson Davis",
+            "Russian Soviet Federative Socialist Republic",
+            "Republic of the Congo",
+            "Korean War"
+          ],
+          "gold_titles": [
+            "Kamchatka Peninsula",
+            "Russian Soviet Federative Socialist Republic"
+          ],
+          "completion_tokens": 443
+        },
+        {
+          "id": "2hop__167577_31122",
+          "pred": "The 18th century.",
+          "gold": "18th",
+          "retrieved_titles": [
+            "A Treatise Concerning the Principles of Human Knowledge",
+            "Idealism",
+            "Slavs",
+            "Anno Domini",
+            "Nanjing"
+          ],
+          "gold_titles": [
+            "A Treatise Concerning the Principles of Human Knowledge",
+            "Idealism"
+          ],
+          "completion_tokens": 148
+        },
+        {
+          "id": "2hop__9238_9237",
+          "pred": "September 2012",
+          "gold": "September 2012",
+          "retrieved_titles": [
+            "Marshall Islands",
+            "Marshall Islands",
+            "New York City",
+            "Seattle",
+            "First Battle of Panipat"
+          ],
+          "gold_titles": [
+            "Marshall Islands",
+            "Marshall Islands"
+          ],
+          "completion_tokens": 150
+        },
+        {
+          "id": "2hop__107905_110222",
+          "pred": "10 June 1819",
+          "gold": "10 June 1819",
+          "retrieved_titles": [
+            "A Burial At Ornans",
+            "Gustave Courbet",
+            "Curtis Armstrong",
+            "Louis van Waefelghem",
+            "Jakob Rem"
+          ],
+          "gold_titles": [
+            "A Burial At Ornans",
+            "Gustave Courbet"
+          ],
+          "completion_tokens": 123
+        },
+        {
+          "id": "2hop__145203_34088",
+          "pred": "Tucson Raceway Park.",
+          "gold": "Tucson Raceway Park",
+          "retrieved_titles": [
+            "Ulysses Kay",
+            "Tucson, Arizona",
+            "Tucson, Arizona",
+            "Colorado Rapids",
+            "Orange County, California"
+          ],
+          "gold_titles": [
+            "Ulysses Kay",
+            "Tucson, Arizona"
+          ],
+          "completion_tokens": 100
+        },
+        {
+          "id": "2hop__498061_88622",
+          "pred": "I don't know.",
+          "gold": "ADM Michael S. Rogers",
+          "retrieved_titles": [
+            "ThinThread",
+            "India Post",
+            "Solidarnost",
+            "Seed of Chucky",
+            "MC Trey"
+          ],
+          "gold_titles": [
+            "Director of the National Security Agency",
+            "ThinThread"
+          ],
+          "completion_tokens": 115
+        },
+        {
+          "id": "3hop1__33845_42197_18397",
+          "pred": "Korea.",
+          "gold": "the Politburo",
+          "retrieved_titles": [
+            "Central Intelligence Agency",
+            "Korean War",
+            "Imperialism",
+            "Leaders of the Vietnam War",
+            "Israel"
+          ],
+          "gold_titles": [
+            "Korean War",
+            "Imperialism",
+            "Central Intelligence Agency"
+          ],
+          "completion_tokens": 3610
+        },
+        {
+          "id": "2hop__822965_165304",
+          "pred": "Kim Braden",
+          "gold": "Kim Braden",
+          "retrieved_titles": [
+            "Love in Pawn",
+            "Aragorn",
+            "Jefferson Davis",
+            "B-And-B",
+            "Gaius Julius Priscus"
+          ],
+          "gold_titles": [
+            "Love in Pawn",
+            "B-And-B"
+          ],
+          "completion_tokens": 170
+        },
+        {
+          "id": "2hop__286093_361551",
+          "pred": "Bay County",
+          "gold": "Bay County",
+          "retrieved_titles": [
+            "James Finch",
+            "Tucson, Arizona",
+            "Lake District",
+            "Lynn Haven, Florida",
+            "Super Grit Cowboy Band"
+          ],
+          "gold_titles": [
+            "James Finch",
+            "Lynn Haven, Florida"
+          ],
+          "completion_tokens": 75
+        },
+        {
+          "id": "2hop__580231_162399",
+          "pred": "15 December 1950",
+          "gold": "15 December 1950",
+          "retrieved_titles": [
+            "Dahyabhai Patel",
+            "Vallabhbhai Patel",
+            "Marshall Eriksen",
+            "Jakarta",
+            "Alyvia Alyn Lind"
+          ],
+          "gold_titles": [
+            "Vallabhbhai Patel",
+            "Dahyabhai Patel"
+          ],
+          "completion_tokens": 110
+        },
+        {
+          "id": "2hop__461639_83837",
+          "pred": "Karen Fairchild",
+          "gold": "Karen Fairchild",
+          "retrieved_titles": [
+            "Home Alone Tonight",
+            "Country Man",
+            "A Series of Unfortunate Events (TV series)",
+            "Bindi the Jungle Girl",
+            "Picnic at Hanging Rock (film)"
+          ],
+          "gold_titles": [
+            "Home Alone Tonight",
+            "Country Man"
+          ],
+          "completion_tokens": 115
+        },
+        {
+          "id": "2hop__83785_461854",
+          "pred": "Rhett Butler",
+          "gold": "Laurence Olivier",
+          "retrieved_titles": [
+            "Gone with the Wind (film)",
+            "A Series of Unfortunate Events (TV series)",
+            "Josiane Balasko",
+            "Muirhead Bone",
+            "Licence to Kill (soundtrack)"
+          ],
+          "gold_titles": [
+            "Gone with the Wind (film)",
+            "Darlings of the Gods"
+          ],
+          "completion_tokens": 191
+        },
+        {
+          "id": "4hop1__802394_153080_159767_81096",
+          "pred": "Mario Andretti",
+          "gold": "Mario Andretti",
+          "retrieved_titles": [
+            "Mingus Plays Piano",
+            "Desert Diamond West Valley Phoenix Grand Prix",
+            "Arizona",
+            "Charles Mingus",
+            "Texas"
+          ],
+          "gold_titles": [
+            "Arizona",
+            "Mingus Plays Piano",
+            "Charles Mingus",
+            "Desert Diamond West Valley Phoenix Grand Prix"
+          ],
+          "completion_tokens": 2496
+        },
+        {
+          "id": "2hop__485221_544917",
+          "pred": "I don't know.",
+          "gold": "Lake Superior",
+          "retrieved_titles": [
+            "Coffee Swamp",
+            "Lake District",
+            "Republic of the Congo",
+            "Washington Island (Michigan)",
+            "Middle Island (Lake Erie)"
+          ],
+          "gold_titles": [
+            "Washington Island (Michigan)",
+            "Coffee Swamp"
+          ],
+          "completion_tokens": 274
+        },
+        {
+          "id": "2hop__38229_84500",
+          "pred": "North Atlantic Treaty Organization",
+          "gold": "North Atlantic Treaty Organization",
+          "retrieved_titles": [
+            "Dwight D. Eisenhower",
+            "NATO",
+            "Warsaw Pact",
+            "United States Coast Guard",
+            "Africa"
+          ],
+          "gold_titles": [
+            "NATO",
+            "Dwight D. Eisenhower"
+          ],
+          "completion_tokens": 118
+        },
+        {
+          "id": "2hop__822113_91104",
+          "pred": "ATS-6 (Applications Technology Satellite-6)",
+          "gold": "ATS - 6 (Applications Technology Satellite - 6)",
+          "retrieved_titles": [
+            "GSAT-7",
+            "ATS-6",
+            "GoPro",
+            "Curtis Armstrong",
+            "Jezero (crater)"
+          ],
+          "gold_titles": [
+            "GSAT-7",
+            "ATS-6"
+          ],
+          "completion_tokens": 1105
+        },
+        {
+          "id": "2hop__106864_80460",
+          "pred": "207.77 million people",
+          "gold": "207.77 million people",
+          "retrieved_titles": [
+            "Bedari",
+            "Demographics of Pakistan",
+            "Premier League",
+            "A Series of Unfortunate Events (TV series)",
+            "Minsk Region"
+          ],
+          "gold_titles": [
+            "Demographics of Pakistan",
+            "Bedari"
+          ],
+          "completion_tokens": 142
+        },
+        {
+          "id": "3hop1__67704_237521_291682",
+          "pred": "Liza Minnelli",
+          "gold": "Liza Minnelli",
+          "retrieved_titles": [
+            "Michael Jackson: The Life of an Icon",
+            "Rock with You",
+            "Liza and David",
+            "Josiane Balasko",
+            "Pink Cadillac (song)"
+          ],
+          "gold_titles": [
+            "Liza and David",
+            "Rock with You",
+            "Michael Jackson: The Life of an Icon"
+          ],
+          "completion_tokens": 269
+        },
+        {
+          "id": "2hop__525242_52835",
+          "pred": "John D. Loudermilk",
+          "gold": "John D. Loudermilk",
+          "retrieved_titles": [
+            "Happy Pills (song)",
+            "Turn Me On (Mark Dinning song)",
+            "Pamela Adlon",
+            "A Series of Unfortunate Events (TV series)",
+            "I've Got You Under My Skin"
+          ],
+          "gold_titles": [
+            "Turn Me On (Mark Dinning song)",
+            "Happy Pills (song)"
+          ],
+          "completion_tokens": 128
+        },
+        {
+          "id": "4hop1__860115_798482_131926_13165",
+          "pred": "Treaty of Paris",
+          "gold": "Treaty of Paris",
+          "retrieved_titles": [
+            "Elizabeth Berg (author)",
+            "Military history of the United States",
+            "Minneapolis",
+            "Fire Over England",
+            "Free State of Mecklenburg-Schwerin"
+          ],
+          "gold_titles": [
+            "Elizabeth Berg (author)",
+            "Newgate Education Center",
+            "Military history of the United States",
+            "Minneapolis"
+          ],
+          "completion_tokens": 150
+        },
+        {
+          "id": "2hop__444265_82341",
+          "pred": "Northern Florida.",
+          "gold": "in Northern Florida",
+          "retrieved_titles": [
+            "Tom Denney",
+            "Ocala, Florida",
+            "Super Bowl XXIX",
+            "Miami",
+            "Janesville Assembly Plant"
+          ],
+          "gold_titles": [
+            "Ocala, Florida",
+            "Tom Denney"
+          ],
+          "completion_tokens": 110
+        },
+        {
+          "id": "2hop__647996_551681",
+          "pred": "Emilia Galotti",
+          "gold": "Emilia Galotti",
+          "retrieved_titles": [
+            "Miss Sara Sampson",
+            "Emilia Galotti",
+            "Tucson, Arizona",
+            "The Suite Life Sets Sail",
+            "557 Violetta"
+          ],
+          "gold_titles": [
+            "Miss Sara Sampson",
+            "Emilia Galotti"
+          ],
+          "completion_tokens": 103
+        },
+        {
+          "id": "2hop__58168_38663",
+          "pred": "54.7%",
+          "gold": "54.7%",
+          "retrieved_titles": [
+            "Tanzania",
+            "Unemployment in the United States",
+            "Manchester United F.C.",
+            "Where Are You Going",
+            "Minneapolis"
+          ],
+          "gold_titles": [
+            "Tanzania",
+            "Unemployment in the United States"
+          ],
+          "completion_tokens": 1356
+        },
+        {
+          "id": "3hop1__28527_42197_18397",
+          "pred": "To the Politburo.",
+          "gold": "the Politburo",
+          "retrieved_titles": [
+            "Korean War",
+            "Imperialism",
+            "Estonia",
+            "Leaders of the Vietnam War",
+            "Israel"
+          ],
+          "gold_titles": [
+            "Estonia",
+            "Korean War",
+            "Imperialism"
+          ],
+          "completion_tokens": 315
+        },
+        {
+          "id": "3hop1__307152_400692_51423",
+          "pred": "I don't know.",
+          "gold": "Casa Loma",
+          "retrieved_titles": [
+            "Fall (Serena Ryder song)",
+            "Westminster Abbey",
+            "William Boleyn",
+            "Vatican City",
+            "Shirley Plantation"
+          ],
+          "gold_titles": [
+            "Sekou Lumumba",
+            "Casa Loma",
+            "Fall (Serena Ryder song)"
+          ],
+          "completion_tokens": 122
+        },
+        {
+          "id": "2hop__704217_82341",
+          "pred": "Sean Hampton was born in Ocala, Florida, which is located in Northern Florida.",
+          "gold": "in Northern Florida",
+          "retrieved_titles": [
+            "Sean Hampton",
+            "Ocala, Florida",
+            "Punjab, Pakistan",
+            "Carver Ranches, West Park, Florida",
+            "The Tragically Hip"
+          ],
+          "gold_titles": [
+            "Sean Hampton",
+            "Ocala, Florida"
+          ],
+          "completion_tokens": 129
+        },
+        {
+          "id": "2hop__808562_72813",
+          "pred": "A Western District uniformed officer.",
+          "gold": "a Western District uniformed officer",
+          "retrieved_titles": [
+            "Don't Be Cruel (Bobby Brown song)",
+            "Police of The Wire",
+            "Chris Thompson (running back)",
+            "A Series of Unfortunate Events (TV series)",
+            "Pam Faris"
+          ],
+          "gold_titles": [
+            "Police of The Wire",
+            "Don't Be Cruel (Bobby Brown song)"
+          ],
+          "completion_tokens": 465
+        }
+      ],
+      "metrics": {
+        "em": {
+          "mean": 0.6,
+          "ci_lo": 0.43333333333333335,
+          "ci_hi": 0.7666666666666667,
+          "n": 30
+        },
+        "f1": {
+          "mean": 0.7458333333333333,
+          "ci_lo": 0.5924444444444446,
+          "ci_hi": 0.8747430555555556,
+          "n": 30
+        },
+        "correct": {
+          "mean": 0.7666666666666667,
+          "ci_lo": 0.6,
+          "ci_hi": 0.9,
+          "n": 30
+        },
+        "recall@5": {
+          "mean": 0.9361111111111111,
+          "ci_lo": 0.8722222222222221,
+          "ci_hi": 0.9916666666666667,
+          "n": 30
+        }
+      }
+    }
+  },
+  "scale_100000": {
+    "long_context": {
+      "per_sample": [
+        {
+          "id": "2hop__67660_81007",
+          "pred": "Tracy McConnell (The Mother).",
+          "gold": "Tracy McConnell",
+          "overflow": false,
+          "completion_tokens": 161
+        },
+        {
+          "id": "2hop__92051_827343",
+          "pred": "Lana Wood",
+          "gold": "Lana Wood",
+          "overflow": false,
+          "completion_tokens": 78
+        },
+        {
+          "id": "2hop__144150_82341",
+          "pred": "Northern Florida.",
+          "gold": "in Northern Florida",
+          "overflow": false,
+          "completion_tokens": 140
+        },
+        {
+          "id": "2hop__83938_5666",
+          "pred": "Boris Yeltsin",
+          "gold": "Yeltsin",
+          "overflow": false,
+          "completion_tokens": 180
+        },
+        {
+          "id": "2hop__167577_31122",
+          "pred": "18th century",
+          "gold": "18th",
+          "overflow": false,
+          "completion_tokens": 137
+        },
+        {
+          "id": "2hop__9238_9237",
+          "pred": "September 2012",
+          "gold": "September 2012",
+          "overflow": false,
+          "completion_tokens": 169
+        },
+        {
+          "id": "2hop__107905_110222",
+          "pred": "10 June 1819",
+          "gold": "10 June 1819",
+          "overflow": false,
+          "completion_tokens": 108
+        },
+        {
+          "id": "2hop__145203_34088",
+          "pred": "Tucson Raceway Park.",
+          "gold": "Tucson Raceway Park",
+          "overflow": false,
+          "completion_tokens": 141
+        },
+        {
+          "id": "3hop1__33845_42197_18397",
+          "pred": "Mao Zedong reported to the Politburo that he would intervene in Korea.",
+          "gold": "the Politburo",
+          "overflow": false,
+          "completion_tokens": 1163
+        },
+        {
+          "id": "2hop__822965_165304",
+          "pred": "Kim Braden",
+          "gold": "Kim Braden",
+          "overflow": false,
+          "completion_tokens": 114
+        },
+        {
+          "id": "2hop__286093_361551",
+          "pred": "Bay County",
+          "gold": "Bay County",
+          "overflow": false,
+          "completion_tokens": 68
+        },
+        {
+          "id": "2hop__580231_162399",
+          "pred": "15 December 1950",
+          "gold": "15 December 1950",
+          "overflow": false,
+          "completion_tokens": 105
+        },
+        {
+          "id": "2hop__461639_83837",
+          "pred": "Karen Fairchild",
+          "gold": "Karen Fairchild",
+          "overflow": false,
+          "completion_tokens": 109
+        },
+        {
+          "id": "2hop__83785_461854",
+          "pred": "Scarlett O'Hara's spouses were Charles Hamilton, Frank Kennedy, and Rhett Butler.",
+          "gold": "Laurence Olivier",
+          "overflow": false,
+          "completion_tokens": 2429
+        },
+        {
+          "id": "4hop1__802394_153080_159767_81096",
+          "pred": "Mario Andretti",
+          "gold": "Mario Andretti",
+          "overflow": false,
+          "completion_tokens": 2823
+        },
+        {
+          "id": "2hop__485221_544917",
+          "pred": "I don't know",
+          "gold": "Lake Superior",
+          "overflow": false,
+          "completion_tokens": 1542
+        },
+        {
+          "id": "2hop__38229_84500",
+          "pred": "North Atlantic Treaty Organization",
+          "gold": "North Atlantic Treaty Organization",
+          "overflow": false,
+          "completion_tokens": 147
+        },
+        {
+          "id": "2hop__822113_91104",
+          "pred": "ATS-6 (Applications Technology Satellite-6)",
+          "gold": "ATS - 6 (Applications Technology Satellite - 6)",
+          "overflow": false,
+          "completion_tokens": 1351
+        },
+        {
+          "id": "2hop__106864_80460",
+          "pred": "207.77 million people",
+          "gold": "207.77 million people",
+          "overflow": false,
+          "completion_tokens": 153
+        },
+        {
+          "id": "3hop1__67704_237521_291682",
+          "pred": "Liza Minnelli",
+          "gold": "Liza Minnelli",
+          "overflow": false,
+          "completion_tokens": 182
+        },
+        {
+          "id": "2hop__525242_52835",
+          "pred": "John D. Loudermilk",
+          "gold": "John D. Loudermilk",
+          "overflow": false,
+          "completion_tokens": 135
+        },
+        {
+          "id": "4hop1__860115_798482_131926_13165",
+          "pred": "The Treaty of Paris.",
+          "gold": "Treaty of Paris",
+          "overflow": false,
+          "completion_tokens": 249
+        },
+        {
+          "id": "2hop__444265_82341",
+          "pred": "Northern Florida.",
+          "gold": "in Northern Florida",
+          "overflow": false,
+          "completion_tokens": 140
+        },
+        {
+          "id": "2hop__647996_551681",
+          "pred": "Emilia Galotti",
+          "gold": "Emilia Galotti",
+          "overflow": false,
+          "completion_tokens": 106
+        },
+        {
+          "id": "2hop__58168_38663",
+          "pred": "54.7%",
+          "gold": "54.7%",
+          "overflow": false,
+          "completion_tokens": 608
+        },
+        {
+          "id": "3hop1__307152_400692_51423",
+          "pred": "I don't know",
+          "gold": "Casa Loma",
+          "overflow": false,
+          "completion_tokens": 851
+        },
+        {
+          "id": "2hop__704217_82341",
+          "pred": "Ocala, in Northern Florida.",
+          "gold": "in Northern Florida",
+          "overflow": false,
+          "completion_tokens": 117
+        },
+        {
+          "id": "2hop__808562_72813",
+          "pred": "Bobby Brown, a Western District uniformed officer.",
+          "gold": "a Western District uniformed officer",
+          "overflow": false,
+          "completion_tokens": 227
+        }
+      ],
+      "metrics": {
+        "em": {
+          "mean": 0.5714285714285714,
+          "ci_lo": 0.39285714285714285,
+          "ci_hi": 0.75,
+          "n": 28
+        },
+        "f1": {
+          "mean": 0.7841836734693877,
+          "ci_lo": 0.6472576530612245,
+          "ci_hi": 0.8973469387755101,
+          "n": 28
+        },
+        "correct": {
+          "mean": 0.8214285714285714,
+          "ci_lo": 0.6785714285714286,
+          "ci_hi": 0.9642857142857143,
+          "n": 28
+        },
+        "recall@5": {
+          "mean": 0.0,
+          "ci_lo": 0.0,
+          "ci_hi": 0.0,
+          "n": 28
+        }
+      }
+    },
+    "traditional_rag": {
+      "per_sample": [
+        {
+          "id": "2hop__67660_81007",
+          "pred": "Tracy McConnell, “The Mother.”",
+          "gold": "Tracy McConnell",
+          "retrieved_titles": [
+            "The Mother (How I Met Your Mother)",
+            "How I Met Your Mother",
+            "How I Met Your Mother",
+            "April Kepner",
+            "Jim Halpert"
+          ],
+          "gold_titles": [
+            "The Mother (How I Met Your Mother)",
+            "How I Met Your Mother"
+          ],
+          "completion_tokens": 219
+        },
+        {
+          "id": "2hop__92051_827343",
+          "pred": "Lana Wood",
+          "gold": "Lana Wood",
+          "retrieved_titles": [
+            "Miracle on 34th Street",
+            "Gal Gadot",
+            "Five Finger Exercise",
+            "John Carroll Lynch",
+            "A Series of Unfortunate Events (TV series)"
+          ],
+          "gold_titles": [
+            "Five Finger Exercise",
+            "Miracle on 34th Street"
+          ],
+          "completion_tokens": 101
+        },
+        {
+          "id": "2hop__144150_82341",
+          "pred": "Northern Florida.",
+          "gold": "in Northern Florida",
+          "retrieved_titles": [
+            "Tom Denney",
+            "Ocala, Florida",
+            "Tallahassee, Florida",
+            "South Beach, Florida",
+            "South Beach, Florida"
+          ],
+          "gold_titles": [
+            "Ocala, Florida",
+            "Tom Denney"
+          ],
+          "completion_tokens": 157
+        },
+        {
+          "id": "2hop__83938_5666",
+          "pred": "I don't know.",
+          "gold": "Yeltsin",
+          "retrieved_titles": [
+            "Kamchatka Peninsula",
+            "Vishwanath Jadhav",
+            "Somalis",
+            "President of India",
+            "Jefferson Davis"
+          ],
+          "gold_titles": [
+            "Kamchatka Peninsula",
+            "Russian Soviet Federative Socialist Republic"
+          ],
+          "completion_tokens": 181
+        },
+        {
+          "id": "2hop__167577_31122",
+          "pred": "The 18th century.",
+          "gold": "18th",
+          "retrieved_titles": [
+            "A Treatise Concerning the Principles of Human Knowledge",
+            "John Cabot",
+            "Idealism",
+            "One man, one vote",
+            "History of India"
+          ],
+          "gold_titles": [
+            "A Treatise Concerning the Principles of Human Knowledge",
+            "Idealism"
+          ],
+          "completion_tokens": 142
+        },
+        {
+          "id": "2hop__9238_9237",
+          "pred": "September 2012.",
+          "gold": "September 2012",
+          "retrieved_titles": [
+            "Marshall Islands",
+            "Marshall Islands",
+            "Air Marshall Islands",
+            "Islam in India",
+            "Jaluit Airport"
+          ],
+          "gold_titles": [
+            "Marshall Islands",
+            "Marshall Islands"
+          ],
+          "completion_tokens": 195
+        },
+        {
+          "id": "2hop__107905_110222",
+          "pred": "10 June 1819",
+          "gold": "10 June 1819",
+          "retrieved_titles": [
+            "A Burial At Ornans",
+            "William Shakespeare",
+            "Gustave Courbet",
+            "Suzanne Valadon",
+            "Charles Henry Turner (painter)"
+          ],
+          "gold_titles": [
+            "A Burial At Ornans",
+            "Gustave Courbet"
+          ],
+          "completion_tokens": 63
+        },
+        {
+          "id": "2hop__145203_34088",
+          "pred": "Tucson Raceway Park.",
+          "gold": "Tucson Raceway Park",
+          "retrieved_titles": [
+            "Ulysses Kay",
+            "Miami",
+            "Miami",
+            "Tucson, Arizona",
+            "Tucson, Arizona"
+          ],
+          "gold_titles": [
+            "Ulysses Kay",
+            "Tucson, Arizona"
+          ],
+          "completion_tokens": 115
+        },
+        {
+          "id": "2hop__498061_88622",
+          "pred": "I don't know.",
+          "gold": "ADM Michael S. Rogers",
+          "retrieved_titles": [
+            "ThinThread",
+            "Stephen Trombley",
+            "Batman Beyond",
+            "James G. Sterchi",
+            "Nothing Records"
+          ],
+          "gold_titles": [
+            "Director of the National Security Agency",
+            "ThinThread"
+          ],
+          "completion_tokens": 146
+        },
+        {
+          "id": "3hop1__33845_42197_18397",
+          "pred": "He reported to the Politburo that he would intervene in Korea.",
+          "gold": "the Politburo",
+          "retrieved_titles": [
+            "Central Intelligence Agency",
+            "Korean War",
+            "Imperialism",
+            "Korean War",
+            "Leaders of the Vietnam War"
+          ],
+          "gold_titles": [
+            "Korean War",
+            "Imperialism",
+            "Central Intelligence Agency"
+          ],
+          "completion_tokens": 1733
+        },
+        {
+          "id": "2hop__822965_165304",
+          "pred": "I don't know",
+          "gold": "Kim Braden",
+          "retrieved_titles": [
+            "Love in Pawn",
+            "Don Draper",
+            "Gal Gadot",
+            "John Carroll Lynch",
+            "Bill Fagerbakke"
+          ],
+          "gold_titles": [
+            "Love in Pawn",
+            "B-And-B"
+          ],
+          "completion_tokens": 276
+        },
+        {
+          "id": "2hop__286093_361551",
+          "pred": "I don't know.",
+          "gold": "Bay County",
+          "retrieved_titles": [
+            "James Finch",
+            "Miami",
+            "Miami",
+            "Lake District",
+            "Orange County, California"
+          ],
+          "gold_titles": [
+            "James Finch",
+            "Lynn Haven, Florida"
+          ],
+          "completion_tokens": 111
+        },
+        {
+          "id": "2hop__580231_162399",
+          "pred": "15 December 1950",
+          "gold": "15 December 1950",
+          "retrieved_titles": [
+            "Dahyabhai Patel",
+            "Vallabhbhai Patel",
+            "Bill Fagerbakke",
+            "Billy Mitchell",
+            "Kanye West"
+          ],
+          "gold_titles": [
+            "Vallabhbhai Patel",
+            "Dahyabhai Patel"
+          ],
+          "completion_tokens": 109
+        },
+        {
+          "id": "2hop__461639_83837",
+          "pred": "Karen Fairchild",
+          "gold": "Karen Fairchild",
+          "retrieved_titles": [
+            "Home Alone Tonight",
+            "Country Man",
+            "Curtis Armstrong",
+            "Comfortably Numb",
+            "Courtesy of the Red, White and Blue (The Angry American)"
+          ],
+          "gold_titles": [
+            "Home Alone Tonight",
+            "Country Man"
+          ],
+          "completion_tokens": 128
+        },
+        {
+          "id": "2hop__83785_461854",
+          "pred": "Scarlett O’Hara’s spouses were Charles Hamilton, Frank Kennedy, and Rhett Butler.",
+          "gold": "Laurence Olivier",
+          "retrieved_titles": [
+            "Gone with the Wind (film)",
+            "Frankly, my dear, I don't give a damn",
+            "Scarlett O'Hara",
+            "Fire Over England",
+            "Angela Martin"
+          ],
+          "gold_titles": [
+            "Gone with the Wind (film)",
+            "Darlings of the Gods"
+          ],
+          "completion_tokens": 539
+        },
+        {
+          "id": "4hop1__802394_153080_159767_81096",
+          "pred": "Mario Andretti",
+          "gold": "Mario Andretti",
+          "retrieved_titles": [
+            "Mingus Plays Piano",
+            "Desert Diamond West Valley Phoenix Grand Prix",
+            "Arizona",
+            "Minneapolis",
+            "Charles Mingus"
+          ],
+          "gold_titles": [
+            "Arizona",
+            "Mingus Plays Piano",
+            "Charles Mingus",
+            "Desert Diamond West Valley Phoenix Grand Prix"
+          ],
+          "completion_tokens": 506
+        },
+        {
+          "id": "2hop__485221_544917",
+          "pred": "I don't know.",
+          "gold": "Lake Superior",
+          "retrieved_titles": [
+            "Coffee Swamp",
+            "Lake District",
+            "Minneapolis",
+            "Columbia River",
+            "Silver Lake (Madison, New Hampshire)"
+          ],
+          "gold_titles": [
+            "Washington Island (Michigan)",
+            "Coffee Swamp"
+          ],
+          "completion_tokens": 232
+        },
+        {
+          "id": "2hop__38229_84500",
+          "pred": "I don't know.",
+          "gold": "North Atlantic Treaty Organization",
+          "retrieved_titles": [
+            "Dwight D. Eisenhower",
+            "Jefferson Davis",
+            "Battle of Bunker Hill",
+            "Quentin Roosevelt",
+            "The Day After Trinity"
+          ],
+          "gold_titles": [
+            "NATO",
+            "Dwight D. Eisenhower"
+          ],
+          "completion_tokens": 147
+        },
+        {
+          "id": "2hop__822113_91104",
+          "pred": "ATS-6 (Applications Technology Satellite-6)",
+          "gold": "ATS - 6 (Applications Technology Satellite - 6)",
+          "retrieved_titles": [
+            "GSAT-7",
+            "ATS-6",
+            "Scud",
+            "Terry Lovejoy",
+            "Warsaw Pact"
+          ],
+          "gold_titles": [
+            "GSAT-7",
+            "ATS-6"
+          ],
+          "completion_tokens": 935
+        },
+        {
+          "id": "2hop__106864_80460",
+          "pred": "207.77 million people",
+          "gold": "207.77 million people",
+          "retrieved_titles": [
+            "Bedari",
+            "Demographics of Pakistan",
+            "Iran",
+            "World population",
+            "Guam"
+          ],
+          "gold_titles": [
+            "Demographics of Pakistan",
+            "Bedari"
+          ],
+          "completion_tokens": 162
+        },
+        {
+          "id": "3hop1__67704_237521_291682",
+          "pred": "I don't know.",
+          "gold": "Liza Minnelli",
+          "retrieved_titles": [
+            "Michael Jackson: The Life of an Icon",
+            "Rock with You",
+            "Marshall Eriksen",
+            "The Spy Who Dumped Me",
+            "Scotty Doesn't Know"
+          ],
+          "gold_titles": [
+            "Liza and David",
+            "Rock with You",
+            "Michael Jackson: The Life of an Icon"
+          ],
+          "completion_tokens": 192
+        },
+        {
+          "id": "2hop__525242_52835",
+          "pred": "John D. Loudermilk",
+          "gold": "John D. Loudermilk",
+          "retrieved_titles": [
+            "Happy Pills (song)",
+            "Turn Me On (Mark Dinning song)",
+            "Hey Jude",
+            "I've Got You Under My Skin",
+            "On the Street Where You Live"
+          ],
+          "gold_titles": [
+            "Turn Me On (Mark Dinning song)",
+            "Happy Pills (song)"
+          ],
+          "completion_tokens": 131
+        },
+        {
+          "id": "4hop1__860115_798482_131926_13165",
+          "pred": "Treaty of Paris",
+          "gold": "Treaty of Paris",
+          "retrieved_titles": [
+            "Elizabeth Berg (author)",
+            "Military history of the United States",
+            "Vatican City",
+            "Utrecht",
+            "Canada–United States border"
+          ],
+          "gold_titles": [
+            "Elizabeth Berg (author)",
+            "Newgate Education Center",
+            "Military history of the United States",
+            "Minneapolis"
+          ],
+          "completion_tokens": 741
+        },
+        {
+          "id": "2hop__444265_82341",
+          "pred": "Northern Florida.",
+          "gold": "in Northern Florida",
+          "retrieved_titles": [
+            "Tom Denney",
+            "Ocala, Florida",
+            "Tallahassee, Florida",
+            "South Beach, Florida",
+            "South Beach, Florida"
+          ],
+          "gold_titles": [
+            "Ocala, Florida",
+            "Tom Denney"
+          ],
+          "completion_tokens": 157
+        },
+        {
+          "id": "2hop__647996_551681",
+          "pred": "Emilia Galotti.",
+          "gold": "Emilia Galotti",
+          "retrieved_titles": [
+            "Miss Sara Sampson",
+            "Asima Chatterjee",
+            "Fire Over England",
+            "Emilia Galotti",
+            "Civil disobedience"
+          ],
+          "gold_titles": [
+            "Miss Sara Sampson",
+            "Emilia Galotti"
+          ],
+          "completion_tokens": 116
+        },
+        {
+          "id": "2hop__58168_38663",
+          "pred": "54.7%",
+          "gold": "54.7%",
+          "retrieved_titles": [
+            "Tanzania",
+            "Unemployment in the United States",
+            "History of taxation in the United States",
+            "The Wall Street Journal",
+            "Manchester United F.C."
+          ],
+          "gold_titles": [
+            "Tanzania",
+            "Unemployment in the United States"
+          ],
+          "completion_tokens": 716
+        },
+        {
+          "id": "3hop1__28527_42197_18397",
+          "pred": "He reported it to the Politburo, saying he would intervene in Korea.",
+          "gold": "the Politburo",
+          "retrieved_titles": [
+            "Korean War",
+            "Korean War",
+            "Imperialism",
+            "Estonia",
+            "Signing of the United States Declaration of Independence"
+          ],
+          "gold_titles": [
+            "Estonia",
+            "Korean War",
+            "Imperialism"
+          ],
+          "completion_tokens": 2265
+        },
+        {
+          "id": "3hop1__307152_400692_51423",
+          "pred": "I don't know",
+          "gold": "Casa Loma",
+          "retrieved_titles": [
+            "Fall (Serena Ryder song)",
+            "Neil Patrick Harris",
+            "Gollum",
+            "La naissance d'Osiris",
+            "Elijah Wood"
+          ],
+          "gold_titles": [
+            "Sekou Lumumba",
+            "Casa Loma",
+            "Fall (Serena Ryder song)"
+          ],
+          "completion_tokens": 139
+        },
+        {
+          "id": "2hop__704217_82341",
+          "pred": "Ocala, Florida",
+          "gold": "in Northern Florida",
+          "retrieved_titles": [
+            "Sean Hampton",
+            "Tennessee",
+            "Royal Palm Estates, Florida",
+            "Central West End, St. Louis",
+            "Ben Hunt (baseball)"
+          ],
+          "gold_titles": [
+            "Sean Hampton",
+            "Ocala, Florida"
+          ],
+          "completion_tokens": 64
+        },
+        {
+          "id": "2hop__808562_72813",
+          "pred": "I don't know.",
+          "gold": "a Western District uniformed officer",
+          "retrieved_titles": [
+            "Don't Be Cruel (Bobby Brown song)",
+            "Die Hard",
+            "RuPaul",
+            "The Book of Eli",
+            "Elijah Wood"
+          ],
+          "gold_titles": [
+            "Police of The Wire",
+            "Don't Be Cruel (Bobby Brown song)"
+          ],
+          "completion_tokens": 95
+        }
+      ],
+      "metrics": {
+        "em": {
+          "mean": 0.4,
+          "ci_lo": 0.23333333333333334,
+          "ci_hi": 0.6,
+          "n": 30
+        },
+        "f1": {
+          "mean": 0.5360606060606059,
+          "ci_lo": 0.37365656565656574,
+          "ci_hi": 0.6982979797979798,
+          "n": 30
+        },
+        "correct": {
+          "mean": 0.5333333333333333,
+          "ci_lo": 0.3333333333333333,
+          "ci_hi": 0.7008333333333325,
+          "n": 30
+        },
+        "recall@5": {
+          "mean": 0.7999999999999999,
+          "ci_lo": 0.7055555555555556,
+          "ci_hi": 0.8888888888888888,
+          "n": 30
+        }
+      }
+    }
+  },
+  "scale_1000000": {
+    "long_context": {
+      "per_sample": [
+        {
+          "id": "2hop__67660_81007",
+          "pred": "",
+          "gold": "Tracy McConnell",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "2hop__92051_827343",
+          "pred": "",
+          "gold": "Lana Wood",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "2hop__144150_82341",
+          "pred": "",
+          "gold": "in Northern Florida",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "2hop__83938_5666",
+          "pred": "",
+          "gold": "Yeltsin",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "2hop__167577_31122",
+          "pred": "",
+          "gold": "18th",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "2hop__9238_9237",
+          "pred": "",
+          "gold": "September 2012",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "2hop__107905_110222",
+          "pred": "",
+          "gold": "10 June 1819",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "2hop__145203_34088",
+          "pred": "",
+          "gold": "Tucson Raceway Park",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "2hop__498061_88622",
+          "pred": "",
+          "gold": "ADM Michael S. Rogers",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "3hop1__33845_42197_18397",
+          "pred": "",
+          "gold": "the Politburo",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "2hop__822965_165304",
+          "pred": "",
+          "gold": "Kim Braden",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "2hop__286093_361551",
+          "pred": "",
+          "gold": "Bay County",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "2hop__580231_162399",
+          "pred": "",
+          "gold": "15 December 1950",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "2hop__461639_83837",
+          "pred": "",
+          "gold": "Karen Fairchild",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "2hop__83785_461854",
+          "pred": "",
+          "gold": "Laurence Olivier",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "4hop1__802394_153080_159767_81096",
+          "pred": "",
+          "gold": "Mario Andretti",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "2hop__485221_544917",
+          "pred": "",
+          "gold": "Lake Superior",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "2hop__38229_84500",
+          "pred": "",
+          "gold": "North Atlantic Treaty Organization",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "2hop__822113_91104",
+          "pred": "",
+          "gold": "ATS - 6 (Applications Technology Satellite - 6)",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "2hop__106864_80460",
+          "pred": "",
+          "gold": "207.77 million people",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "3hop1__67704_237521_291682",
+          "pred": "",
+          "gold": "Liza Minnelli",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "2hop__525242_52835",
+          "pred": "",
+          "gold": "John D. Loudermilk",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "4hop1__860115_798482_131926_13165",
+          "pred": "",
+          "gold": "Treaty of Paris",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "2hop__444265_82341",
+          "pred": "",
+          "gold": "in Northern Florida",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "2hop__647996_551681",
+          "pred": "",
+          "gold": "Emilia Galotti",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "2hop__58168_38663",
+          "pred": "",
+          "gold": "54.7%",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "3hop1__28527_42197_18397",
+          "pred": "",
+          "gold": "the Politburo",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "3hop1__307152_400692_51423",
+          "pred": "",
+          "gold": "Casa Loma",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "2hop__704217_82341",
+          "pred": "",
+          "gold": "in Northern Florida",
+          "overflow": true,
+          "completion_tokens": 0
+        },
+        {
+          "id": "2hop__808562_72813",
+          "pred": "",
+          "gold": "a Western District uniformed officer",
+          "overflow": true,
+          "completion_tokens": 0
+        }
+      ],
+      "metrics": {
+        "em": {
+          "mean": 0.0,
+          "ci_lo": 0.0,
+          "ci_hi": 0.0,
+          "n": 30
+        },
+        "f1": {
+          "mean": 0.0,
+          "ci_lo": 0.0,
+          "ci_hi": 0.0,
+          "n": 30
+        },
+        "correct": {
+          "mean": 0.0,
+          "ci_lo": 0.0,
+          "ci_hi": 0.0,
+          "n": 30
+        },
+        "recall@5": {
+          "mean": 0.0,
+          "ci_lo": 0.0,
+          "ci_hi": 0.0,
+          "n": 30
+        }
+      }
+    },
+    "traditional_rag": {
+      "per_sample": [
+        {
+          "id": "2hop__67660_81007",
+          "pred": "Tracy McConnell, the Mother.",
+          "gold": "Tracy McConnell",
+          "retrieved_titles": [
+            "How I Met Your Mother",
+            "The Mother (How I Met Your Mother)",
+            "The Mother (How I Met Your Mother)",
+            "Ted Mosby",
+            "How I Met Your Mother"
+          ],
+          "gold_titles": [
+            "The Mother (How I Met Your Mother)",
+            "How I Met Your Mother"
+          ],
+          "completion_tokens": 207
+        },
+        {
+          "id": "2hop__92051_827343",
+          "pred": "I don't know",
+          "gold": "Lana Wood",
+          "retrieved_titles": [
+            "Miracle on 34th Street",
+            "Miracle on 34th Street",
+            "Gal Gadot",
+            "Gal Gadot",
+            "Invisible Child"
+          ],
+          "gold_titles": [
+            "Five Finger Exercise",
+            "Miracle on 34th Street"
+          ],
+          "completion_tokens": 106
+        },
+        {
+          "id": "2hop__144150_82341",
+          "pred": "I don't know.",
+          "gold": "in Northern Florida",
+          "retrieved_titles": [
+            "Tom Denney",
+            "Miami",
+            "Tallahassee, Florida",
+            "Tallahassee, Florida",
+            "Tallahassee, Florida"
+          ],
+          "gold_titles": [
+            "Ocala, Florida",
+            "Tom Denney"
+          ],
+          "completion_tokens": 244
+        },
+        {
+          "id": "2hop__83938_5666",
+          "pred": "I don't know.",
+          "gold": "Yeltsin",
+          "retrieved_titles": [
+            "Kamchatka Peninsula",
+            "David Dacko",
+            "Russian Soviet Federative Socialist Republic",
+            "Ram Nath Kovind",
+            "Crimean War"
+          ],
+          "gold_titles": [
+            "Kamchatka Peninsula",
+            "Russian Soviet Federative Socialist Republic"
+          ],
+          "completion_tokens": 1241
+        },
+        {
+          "id": "2hop__167577_31122",
+          "pred": "18th century",
+          "gold": "18th",
+          "retrieved_titles": [
+            "A Treatise Concerning the Principles of Human Knowledge",
+            "William Shakespeare",
+            "Modern history",
+            "Age of Enlightenment",
+            "Friedrich Hayek"
+          ],
+          "gold_titles": [
+            "A Treatise Concerning the Principles of Human Knowledge",
+            "Idealism"
+          ],
+          "completion_tokens": 285
+        },
+        {
+          "id": "2hop__9238_9237",
+          "pred": "September 2012",
+          "gold": "September 2012",
+          "retrieved_titles": [
+            "Marshall Islands",
+            "Marshall Islands",
+            "Air Marshall Islands",
+            "Jaluit Airport",
+            "Al-Serkal Mosque"
+          ],
+          "gold_titles": [
+            "Marshall Islands",
+            "Marshall Islands"
+          ],
+          "completion_tokens": 169
+        },
+        {
+          "id": "2hop__107905_110222",
+          "pred": "I don't know",
+          "gold": "10 June 1819",
+          "retrieved_titles": [
+            "A Burial At Ornans",
+            "William Shakespeare",
+            "William Shakespeare",
+            "William Shakespeare",
+            "William Shakespeare"
+          ],
+          "gold_titles": [
+            "A Burial At Ornans",
+            "Gustave Courbet"
+          ],
+          "completion_tokens": 87
+        },
+        {
+          "id": "2hop__145203_34088",
+          "pred": "I don't know.",
+          "gold": "Tucson Raceway Park",
+          "retrieved_titles": [
+            "Ulysses Kay",
+            "NASCAR RaceDay",
+            "New York Yankees",
+            "New York Yankees",
+            "New York Yankees"
+          ],
+          "gold_titles": [
+            "Ulysses Kay",
+            "Tucson, Arizona"
+          ],
+          "completion_tokens": 193
+        },
+        {
+          "id": "2hop__498061_88622",
+          "pred": "I don't know.",
+          "gold": "ADM Michael S. Rogers",
+          "retrieved_titles": [
+            "ThinThread",
+            "John Carroll Lynch",
+            "Stephen Trombley",
+            "Tittsworth",
+            "Al Bell"
+          ],
+          "gold_titles": [
+            "Director of the National Security Agency",
+            "ThinThread"
+          ],
+          "completion_tokens": 174
+        },
+        {
+          "id": "3hop1__33845_42197_18397",
+          "pred": "Mao Zedong reported to the Politburo that he would intervene in Korea.",
+          "gold": "the Politburo",
+          "retrieved_titles": [
+            "Korean War",
+            "Korean War",
+            "Korean War",
+            "Korean War",
+            "Korean War"
+          ],
+          "gold_titles": [
+            "Korean War",
+            "Imperialism",
+            "Central Intelligence Agency"
+          ],
+          "completion_tokens": 3640
+        },
+        {
+          "id": "2hop__822965_165304",
+          "pred": "I don't know",
+          "gold": "Kim Braden",
+          "retrieved_titles": [
+            "Love in Pawn",
+            "Marshall Eriksen",
+            "Marshall Eriksen",
+            "Don Draper",
+            "Bill Fagerbakke"
+          ],
+          "gold_titles": [
+            "Love in Pawn",
+            "B-And-B"
+          ],
+          "completion_tokens": 242
+        },
+        {
+          "id": "2hop__286093_361551",
+          "pred": "I don't know",
+          "gold": "Bay County",
+          "retrieved_titles": [
+            "James Finch",
+            "Menemsha, Massachusetts",
+            "Jefferson Davis",
+            "Jefferson Davis",
+            "Ion Dincă"
+          ],
+          "gold_titles": [
+            "James Finch",
+            "Lynn Haven, Florida"
+          ],
+          "completion_tokens": 91
+        },
+        {
+          "id": "2hop__580231_162399",
+          "pred": "15 December 1950",
+          "gold": "15 December 1950",
+          "retrieved_titles": [
+            "Dahyabhai Patel",
+            "Vallabhbhai Patel",
+            "Lata Mangeshkar",
+            "Bill Fagerbakke",
+            "Sarvepalli Radhakrishnan"
+          ],
+          "gold_titles": [
+            "Vallabhbhai Patel",
+            "Dahyabhai Patel"
+          ],
+          "completion_tokens": 119
+        },
+        {
+          "id": "2hop__461639_83837",
+          "pred": "Karen Fairchild",
+          "gold": "Karen Fairchild",
+          "retrieved_titles": [
+            "Home Alone Tonight",
+            "Country Man",
+            "Coca-Cola Cowboy",
+            "Daniel Stern (actor)",
+            "Sings America"
+          ],
+          "gold_titles": [
+            "Home Alone Tonight",
+            "Country Man"
+          ],
+          "completion_tokens": 121
+        },
+        {
+          "id": "2hop__83785_461854",
+          "pred": "Scarlett O’Hara’s spouses were Charles Hamilton, Frank Kennedy, and Rhett Butler.",
+          "gold": "Laurence Olivier",
+          "retrieved_titles": [
+            "Gone with the Wind (film)",
+            "Frankly, my dear, I don't give a damn",
+            "Scarlett O'Hara",
+            "Scarlett O'Hara",
+            "Fire Over England"
+          ],
+          "gold_titles": [
+            "Gone with the Wind (film)",
+            "Darlings of the Gods"
+          ],
+          "completion_tokens": 655
+        },
+        {
+          "id": "4hop1__802394_153080_159767_81096",
+          "pred": "I don't know.",
+          "gold": "Mario Andretti",
+          "retrieved_titles": [
+            "Minneapolis",
+            "Minneapolis",
+            "Minneapolis",
+            "Minneapolis",
+            "Charles Mingus"
+          ],
+          "gold_titles": [
+            "Arizona",
+            "Mingus Plays Piano",
+            "Charles Mingus",
+            "Desert Diamond West Valley Phoenix Grand Prix"
+          ],
+          "completion_tokens": 188
+        },
+        {
+          "id": "2hop__485221_544917",
+          "pred": "I don't know",
+          "gold": "Lake Superior",
+          "retrieved_titles": [
+            "Coffee Swamp",
+            "Mississippi River",
+            "Mississippi River",
+            "Mississippi River",
+            "Mississippi River"
+          ],
+          "gold_titles": [
+            "Washington Island (Michigan)",
+            "Coffee Swamp"
+          ],
+          "completion_tokens": 243
+        },
+        {
+          "id": "2hop__38229_84500",
+          "pred": "I don't know.",
+          "gold": "North Atlantic Treaty Organization",
+          "retrieved_titles": [
+            "Dwight D. Eisenhower",
+            "Dwight D. Eisenhower",
+            "Dwight D. Eisenhower",
+            "Dwight D. Eisenhower",
+            "Dwight D. Eisenhower"
+          ],
+          "gold_titles": [
+            "NATO",
+            "Dwight D. Eisenhower"
+          ],
+          "completion_tokens": 1297
+        },
+        {
+          "id": "2hop__822113_91104",
+          "pred": "ATS-6 (Applications Technology Satellite-6)",
+          "gold": "ATS - 6 (Applications Technology Satellite - 6)",
+          "retrieved_titles": [
+            "GSAT-7",
+            "ATS-6",
+            "BeiDou",
+            "BeiDou",
+            "INSAT-4CR"
+          ],
+          "gold_titles": [
+            "GSAT-7",
+            "ATS-6"
+          ],
+          "completion_tokens": 1778
+        },
+        {
+          "id": "2hop__106864_80460",
+          "pred": "207.77 million people",
+          "gold": "207.77 million people",
+          "retrieved_titles": [
+            "Bedari",
+            "Israel",
+            "Saudi Arabia",
+            "Demographics of Pakistan",
+            "World population"
+          ],
+          "gold_titles": [
+            "Demographics of Pakistan",
+            "Bedari"
+          ],
+          "completion_tokens": 178
+        },
+        {
+          "id": "3hop1__67704_237521_291682",
+          "pred": "I don't know.",
+          "gold": "Liza Minnelli",
+          "retrieved_titles": [
+            "Nine Days that Changed the World",
+            "Michael Jackson: The Life of an Icon",
+            "Rock with You",
+            "Paul Allen",
+            "Madonna (entertainer)"
+          ],
+          "gold_titles": [
+            "Liza and David",
+            "Rock with You",
+            "Michael Jackson: The Life of an Icon"
+          ],
+          "completion_tokens": 387
+        },
+        {
+          "id": "2hop__525242_52835",
+          "pred": "John D. Loudermilk",
+          "gold": "John D. Loudermilk",
+          "retrieved_titles": [
+            "Happy Pills (song)",
+            "Turn Me On (Mark Dinning song)",
+            "Rock with You",
+            "Tip of My Tongue",
+            "My Whole World Ended (The Moment You Left Me)"
+          ],
+          "gold_titles": [
+            "Turn Me On (Mark Dinning song)",
+            "Happy Pills (song)"
+          ],
+          "completion_tokens": 101
+        },
+        {
+          "id": "4hop1__860115_798482_131926_13165",
+          "pred": "The Treaty of Paris.",
+          "gold": "Treaty of Paris",
+          "retrieved_titles": [
+            "Elizabeth Berg (author)",
+            "Military history of the United States",
+            "Louisiana Purchase",
+            "San Diego",
+            "New York City"
+          ],
+          "gold_titles": [
+            "Elizabeth Berg (author)",
+            "Newgate Education Center",
+            "Military history of the United States",
+            "Minneapolis"
+          ],
+          "completion_tokens": 1214
+        },
+        {
+          "id": "2hop__444265_82341",
+          "pred": "I don't know.",
+          "gold": "in Northern Florida",
+          "retrieved_titles": [
+            "Tom Denney",
+            "Miami",
+            "Tallahassee, Florida",
+            "Tallahassee, Florida",
+            "Tallahassee, Florida"
+          ],
+          "gold_titles": [
+            "Ocala, Florida",
+            "Tom Denney"
+          ],
+          "completion_tokens": 244
+        },
+        {
+          "id": "2hop__647996_551681",
+          "pred": "I don't know",
+          "gold": "Emilia Galotti",
+          "retrieved_titles": [
+            "Miss Sara Sampson",
+            "Piper Kerman",
+            "Megan McCafferty",
+            "The Deeds of the Disturber",
+            "The Bellarosa Connection"
+          ],
+          "gold_titles": [
+            "Miss Sara Sampson",
+            "Emilia Galotti"
+          ],
+          "completion_tokens": 101
+        },
+        {
+          "id": "2hop__58168_38663",
+          "pred": "54.7%",
+          "gold": "54.7%",
+          "retrieved_titles": [
+            "Tanzania",
+            "Unemployment in the United States",
+            "Tanzania",
+            "Atlantic City, New Jersey",
+            "Portugal"
+          ],
+          "gold_titles": [
+            "Tanzania",
+            "Unemployment in the United States"
+          ],
+          "completion_tokens": 786
+        },
+        {
+          "id": "3hop1__28527_42197_18397",
+          "pred": "He reported it to the Politburo.",
+          "gold": "the Politburo",
+          "retrieved_titles": [
+            "Korean War",
+            "Korean War",
+            "Korean War",
+            "Korean War",
+            "Korean War"
+          ],
+          "gold_titles": [
+            "Estonia",
+            "Korean War",
+            "Imperialism"
+          ],
+          "completion_tokens": 1339
+        },
+        {
+          "id": "3hop1__307152_400692_51423",
+          "pred": "I don't know",
+          "gold": "Casa Loma",
+          "retrieved_titles": [
+            "Fall (Serena Ryder song)",
+            "Fall of Constantinople",
+            "La naissance d'Osiris",
+            "Fall of Constantinople",
+            "Castle on the Hudson"
+          ],
+          "gold_titles": [
+            "Sekou Lumumba",
+            "Casa Loma",
+            "Fall (Serena Ryder song)"
+          ],
+          "completion_tokens": 206
+        },
+        {
+          "id": "2hop__704217_82341",
+          "pred": "Ocala, Florida",
+          "gold": "in Northern Florida",
+          "retrieved_titles": [
+            "Sean Hampton",
+            "Tallahassee, Florida",
+            "Tallahassee, Florida",
+            "Tallahassee, Florida",
+            "Tallahassee, Florida"
+          ],
+          "gold_titles": [
+            "Sean Hampton",
+            "Ocala, Florida"
+          ],
+          "completion_tokens": 72
+        },
+        {
+          "id": "2hop__808562_72813",
+          "pred": "I don't know.",
+          "gold": "a Western District uniformed officer",
+          "retrieved_titles": [
+            "Don't Be Cruel (Bobby Brown song)",
+            "Scott Grimes",
+            "Way Down in the Hole",
+            "Way Down in the Hole",
+            "RuPaul"
+          ],
+          "gold_titles": [
+            "Police of The Wire",
+            "Don't Be Cruel (Bobby Brown song)"
+          ],
+          "completion_tokens": 440
+        }
+      ],
+      "metrics": {
+        "em": {
+          "mean": 0.23333333333333334,
+          "ci_lo": 0.1,
+          "ci_hi": 0.4,
+          "n": 30
+        },
+        "f1": {
+          "mean": 0.3255555555555556,
+          "ci_lo": 0.19327777777777783,
+          "ci_hi": 0.48000000000000004,
+          "n": 30
+        },
+        "correct": {
+          "mean": 0.3,
+          "ci_lo": 0.13333333333333333,
+          "ci_hi": 0.4666666666666667,
+          "n": 30
+        },
+        "recall@5": {
+          "mean": 0.6305555555555554,
+          "ci_lo": 0.5444444444444445,
+          "ci_hi": 0.7250694444444443,
+          "n": 30
+        }
+      }
+    }
+  }
+}

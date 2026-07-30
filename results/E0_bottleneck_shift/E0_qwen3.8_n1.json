@@ -1,0 +1,260 @@
+{
+  "scale_1000": {
+    "long_context": {
+      "per_sample": [
+        {
+          "id": "2hop__67660_81007",
+          "pred": "Tracy McConnell, “The Mother.”",
+          "gold": "Tracy McConnell",
+          "overflow": false,
+          "completion_tokens": 166
+        }
+      ],
+      "metrics": {
+        "em": {
+          "mean": 0.0,
+          "ci_lo": 0.0,
+          "ci_hi": 0.0,
+          "n": 1
+        },
+        "f1": {
+          "mean": 0.6666666666666666,
+          "ci_lo": 0.6666666666666666,
+          "ci_hi": 0.6666666666666666,
+          "n": 1
+        },
+        "correct": {
+          "mean": 1.0,
+          "ci_lo": 1.0,
+          "ci_hi": 1.0,
+          "n": 1
+        },
+        "recall@5": {
+          "mean": 0.0,
+          "ci_lo": 0.0,
+          "ci_hi": 0.0,
+          "n": 1
+        }
+      }
+    },
+    "traditional_rag": {
+      "per_sample": [
+        {
+          "id": "2hop__67660_81007",
+          "pred": "Tracy McConnell, “The Mother.”",
+          "gold": "Tracy McConnell",
+          "retrieved_titles": [
+            "The Mother (How I Met Your Mother)",
+            "How I Met Your Mother",
+            "Charleston, South Carolina",
+            "Lacoochee, Florida",
+            "Mian Haji Sahib"
+          ],
+          "gold_titles": [
+            "The Mother (How I Met Your Mother)",
+            "How I Met Your Mother"
+          ],
+          "completion_tokens": 161
+        }
+      ],
+      "metrics": {
+        "em": {
+          "mean": 0.0,
+          "ci_lo": 0.0,
+          "ci_hi": 0.0,
+          "n": 1
+        },
+        "f1": {
+          "mean": 0.6666666666666666,
+          "ci_lo": 0.6666666666666666,
+          "ci_hi": 0.6666666666666666,
+          "n": 1
+        },
+        "correct": {
+          "mean": 1.0,
+          "ci_lo": 1.0,
+          "ci_hi": 1.0,
+          "n": 1
+        },
+        "recall@5": {
+          "mean": 1.0,
+          "ci_lo": 1.0,
+          "ci_hi": 1.0,
+          "n": 1
+        }
+      }
+    }
+  },
+  "scale_10000": {
+    "long_context": {
+      "per_sample": [
+        {
+          "id": "2hop__67660_81007",
+          "pred": "Tracy McConnell, “The Mother.”",
+          "gold": "Tracy McConnell",
+          "overflow": false,
+          "completion_tokens": 171
+        }
+      ],
+      "metrics": {
+        "em": {
+          "mean": 0.0,
+          "ci_lo": 0.0,
+          "ci_hi": 0.0,
+          "n": 1
+        },
+        "f1": {
+          "mean": 0.6666666666666666,
+          "ci_lo": 0.6666666666666666,
+          "ci_hi": 0.6666666666666666,
+          "n": 1
+        },
+        "correct": {
+          "mean": 1.0,
+          "ci_lo": 1.0,
+          "ci_hi": 1.0,
+          "n": 1
+        },
+        "recall@5": {
+          "mean": 0.0,
+          "ci_lo": 0.0,
+          "ci_hi": 0.0,
+          "n": 1
+        }
+      }
+    },
+    "traditional_rag": {
+      "per_sample": [
+        {
+          "id": "2hop__67660_81007",
+          "pred": "Tracy McConnell, “The Mother.”",
+          "gold": "Tracy McConnell",
+          "retrieved_titles": [
+            "The Mother (How I Met Your Mother)",
+            "How I Met Your Mother",
+            "Jim Halpert",
+            "Karma (How I Met Your Mother)",
+            "James Meredith"
+          ],
+          "gold_titles": [
+            "The Mother (How I Met Your Mother)",
+            "How I Met Your Mother"
+          ],
+          "completion_tokens": 159
+        }
+      ],
+      "metrics": {
+        "em": {
+          "mean": 0.0,
+          "ci_lo": 0.0,
+          "ci_hi": 0.0,
+          "n": 1
+        },
+        "f1": {
+          "mean": 0.6666666666666666,
+          "ci_lo": 0.6666666666666666,
+          "ci_hi": 0.6666666666666666,
+          "n": 1
+        },
+        "correct": {
+          "mean": 1.0,
+          "ci_lo": 1.0,
+          "ci_hi": 1.0,
+          "n": 1
+        },
+        "recall@5": {
+          "mean": 1.0,
+          "ci_lo": 1.0,
+          "ci_hi": 1.0,
+          "n": 1
+        }
+      }
+    }
+  },
+  "scale_100000": {
+    "long_context": {
+      "per_sample": [
+        {
+          "id": "2hop__67660_81007",
+          "pred": "Tracy McConnell (The Mother).",
+          "gold": "Tracy McConnell",
+          "overflow": false,
+          "completion_tokens": 161
+        }
+      ],
+      "metrics": {
+        "em": {
+          "mean": 0.0,
+          "ci_lo": 0.0,
+          "ci_hi": 0.0,
+          "n": 1
+        },
+        "f1": {
+          "mean": 0.8,
+          "ci_lo": 0.8,
+          "ci_hi": 0.8,
+          "n": 1
+        },
+        "correct": {
+          "mean": 1.0,
+          "ci_lo": 1.0,
+          "ci_hi": 1.0,
+          "n": 1
+        },
+        "recall@5": {
+          "mean": 0.0,
+          "ci_lo": 0.0,
+          "ci_hi": 0.0,
+          "n": 1
+        }
+      }
+    },
+    "traditional_rag": {
+      "per_sample": [
+        {
+          "id": "2hop__67660_81007",
+          "pred": "Tracy McConnell, “The Mother.”",
+          "gold": "Tracy McConnell",
+          "retrieved_titles": [
+            "The Mother (How I Met Your Mother)",
+            "How I Met Your Mother",
+            "How I Met Your Mother",
+            "April Kepner",
+            "Jim Halpert"
+          ],
+          "gold_titles": [
+            "The Mother (How I Met Your Mother)",
+            "How I Met Your Mother"
+          ],
+          "completion_tokens": 219
+        }
+      ],
+      "metrics": {
+        "em": {
+          "mean": 0.0,
+          "ci_lo": 0.0,
+          "ci_hi": 0.0,
+          "n": 1
+        },
+        "f1": {
+          "mean": 0.6666666666666666,
+          "ci_lo": 0.6666666666666666,
+          "ci_hi": 0.6666666666666666,
+          "n": 1
+        },
+        "correct": {
+          "mean": 1.0,
+          "ci_lo": 1.0,
+          "ci_hi": 1.0,
+          "n": 1
+        },
+        "recall@5": {
+          "mean": 1.0,
+          "ci_lo": 1.0,
+          "ci_hi": 1.0,
+          "n": 1
+        }
+      }
+    }
+  }
+}

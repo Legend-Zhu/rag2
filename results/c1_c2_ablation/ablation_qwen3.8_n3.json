@@ -1,0 +1,109 @@
+{
+  "S1_B": {
+    "strategy": "S1",
+    "backend": "B",
+    "metrics": {
+      "em": {
+        "mean": 0.3333333333333333,
+        "ci_lo": 0.0,
+        "ci_hi": 1.0,
+        "n": 3
+      },
+      "f1": {
+        "mean": 0.6767676767676768,
+        "ci_lo": 0.3636363636363636,
+        "ci_hi": 1.0,
+        "n": 3
+      },
+      "correct": {
+        "mean": 0.6666666666666666,
+        "ci_lo": 0.0,
+        "ci_hi": 1.0,
+        "n": 3
+      },
+      "recall@5": {
+        "mean": 0.6666666666666666,
+        "ci_lo": 0.0,
+        "ci_hi": 1.0,
+        "n": 3
+      }
+    },
+    "avg_steps": 3.67,
+    "avg_elapsed_s": 69.4,
+    "n_valid": 3,
+    "per_sample": [
+      {
+        "id": "2hop__67660_81007",
+        "pred": "Tracy McConnell, “the Mother.”",
+        "gold": "Tracy McConnell",
+        "retrieved_titles": [
+          "How I Met Your Mother",
+          "Ted Mosby",
+          "How I Met Your Mother (season 1)",
+          "The Mother (How I Met Your Mother)",
+          "The Mother (How I Met Your Mother)",
+          "How I Met Your Mother",
+          "Ted Mosby",
+          "Marshall Eriksen"
+        ],
+        "gold_titles": [
+          "The Mother (How I Met Your Mother)",
+          "How I Met Your Mother"
+        ],
+        "n_steps": 4,
+        "n_collected": 8,
+        "elapsed_s": 77.35542106628418
+      },
+      {
+        "id": "2hop__92051_827343",
+        "pred": "Lana Wood",
+        "gold": "Lana Wood",
+        "retrieved_titles": [
+          "Miracle on 34th Street",
+          "Susan Banks",
+          "Cristin Milioti",
+          "Five Finger Exercise",
+          "McMillan & Wife",
+          "Jennifer Morrison",
+          "Marshall Eriksen",
+          "Chickasaw, Louisville"
+        ],
+        "gold_titles": [
+          "Five Finger Exercise",
+          "Miracle on 34th Street"
+        ],
+        "n_steps": 3,
+        "n_collected": 8,
+        "elapsed_s": 43.191565990448
+      },
+      {
+        "id": "2hop__144150_82341",
+        "pred": "Central Florida (specifically the northern region of Central Florida).",
+        "gold": "in Northern Florida",
+        "retrieved_titles": [
+          "Chai Ling",
+          "David Henrie",
+          "The Mother (How I Met Your Mother)",
+          "Cristin Milioti",
+          "Chickasaw, Louisville",
+          "Ted Mosby",
+          "Ted Mosby",
+          "Susan Banks",
+          "Jennifer Morrison",
+          "Josh Radnor",
+          "How I Met Your Mother",
+          "Nothing Suits Me Like a Suit",
+          "Cobie Smulders",
+          "How I Met Your Mother (season 1)"
+        ],
+        "gold_titles": [
+          "Ocala, Florida",
+          "Tom Denney"
+        ],
+        "n_steps": 4,
+        "n_collected": 14,
+        "elapsed_s": 87.56396198272705
+      }
+    ]
+  }
+}

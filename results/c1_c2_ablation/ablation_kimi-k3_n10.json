@@ -1,0 +1,167 @@
+{
+  "S1_B": {
+    "strategy": "S1",
+    "backend": "B",
+    "metrics": {
+      "em": {
+        "mean": 0.1,
+        "ci_lo": 0.0,
+        "ci_hi": 0.3,
+        "n": 10
+      },
+      "f1": {
+        "mean": 0.23718272066098148,
+        "ci_lo": 0.0686974257626432,
+        "ci_hi": 0.472987099856665,
+        "n": 10
+      },
+      "correct": {
+        "mean": 0.2,
+        "ci_lo": 0.0,
+        "ci_hi": 0.5,
+        "n": 10
+      },
+      "recall@5": {
+        "mean": 0.2,
+        "ci_lo": 0.0,
+        "ci_hi": 0.5,
+        "n": 10
+      }
+    },
+    "avg_steps": 1.5,
+    "avg_elapsed_s": 15.3,
+    "n_valid": 10,
+    "per_sample": [
+      {
+        "id": "A group of genetical",
+        "pred": "A clone.",
+        "gold": "a clone",
+        "retrieved_titles": [],
+        "gold_titles": [],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 0.0007607936859130859
+      },
+      {
+        "id": "Do motile cilia usua",
+        "pred": "large numbers",
+        "gold": "large",
+        "retrieved_titles": [
+          "Supporting science fact",
+          "Distractor 2",
+          "Supporting science fact",
+          "Distractor 3",
+          "Distractor 3",
+          "Distractor 1",
+          "Supporting science fact",
+          "Supporting science fact",
+          "Distractor 2",
+          "Distractor 1"
+        ],
+        "gold_titles": [],
+        "n_steps": 4,
+        "n_collected": 10,
+        "elapsed_s": 61.6470148563385
+      },
+      {
+        "id": "What type of bonds d",
+        "pred": "Alkanes only contain single covalent bonds (sigma bonds) — specifically C–C and C–H single bonds. This is why they are called saturated hydrocarbons.",
+        "gold": "carbon-carbon single bonds",
+        "retrieved_titles": [],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 7.189251184463501
+      },
+      {
+        "id": "A convergent plate b",
+        "pred": "A convergent plate boundary is created when two plates move toward each other and collide (converge), often causing one plate to subduct beneath the other or the crust to crumple and uplift.",
+        "gold": "come toward each other",
+        "retrieved_titles": [],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 12.110680103302002
+      },
+      {
+        "id": "Upon reaching the po",
+        "pred": "A neurotransmitter. It is released from the presynaptic neuron into the synaptic cleft, diffuses to the postsynaptic membrane, and binds to a specific receptor to activate it.",
+        "gold": "neurotransmitter",
+        "retrieved_titles": [],
+        "gold_titles": [],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 7.855647802352905
+      },
+      {
+        "id": "Trichomoniasis is ca",
+        "pred": "Trichomoniasis is caused by a protozoan pathogen (the parasite Trichomonas vaginalis).",
+        "gold": "protozoa",
+        "retrieved_titles": [
+          "Supporting science fact"
+        ],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 2,
+        "n_collected": 1,
+        "elapsed_s": 18.024062156677246
+      },
+      {
+        "id": "The adrenal cortex d",
+        "pred": "The kidneys—mainly the distal convoluted tubules and collecting ducts—where aldosterone increases Na⁺ reabsorption (and K⁺/H⁺ secretion). Minor sodium-conserving effects also occur in salivary glands, sweat glands, and the colon.",
+        "gold": "kidneys",
+        "retrieved_titles": [],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 12.946572065353394
+      },
+      {
+        "id": "What is the lowest l",
+        "pred": "The cell. It is the smallest structural and functional unit capable of carrying out all processes required for life.",
+        "gold": "the cell",
+        "retrieved_titles": [],
+        "gold_titles": [],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 7.8645758628845215
+      },
+      {
+        "id": "A fact or question i",
+        "pred": "Testability — for a fact or question to be considered science, it must be testable (science is based on a method relying on observations and data; questions that cannot be tested are not science).",
+        "gold": "it is testable",
+        "retrieved_titles": [
+          "Supporting science fact",
+          "Distractor 1",
+          "Distractor 3",
+          "Distractor 3"
+        ],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 2,
+        "n_collected": 4,
+        "elapsed_s": 15.50945496559143
+      },
+      {
+        "id": "What do populations ",
+        "pred": "Populations gain new individuals/members through births and immigration, which increases population size and drives population growth.",
+        "gold": "individuals",
+        "retrieved_titles": [],
+        "gold_titles": [
+          "Supporting science fact"
+        ],
+        "n_steps": 1,
+        "n_collected": 0,
+        "elapsed_s": 9.594395160675049
+      }
+    ]
+  }
+}

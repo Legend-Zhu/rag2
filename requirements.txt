@@ -1,0 +1,25 @@
+# RAG² 依赖固定（Python 3.14, Mac mini M4)
+# 实测可装的版本组合 — 2026-07-26
+
+# torch 单独装（大 wheel，用清华镜像）
+# torch==2.13.0
+
+# 核心栈
+sentence-transformers>=5.0
+faiss-cpu>=1.14
+transformers>=5.0
+numpy>=2.0
+scikit-learn>=1.9
+scipy>=1.18
+
+# 配置与数据
+pyyaml>=6.0
+datasets>=3.0                  # HuggingFace datasets，加载 MuSiQue/HotpotQA
+
+# 评测
+ragas>=0.2                     # faithfulness 等指标
+
+# 工具
+psutil>=6.0
+tqdm>=4.0
+tenacity>=8.0                  # API 重试
