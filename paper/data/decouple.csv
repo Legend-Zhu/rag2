@@ -1,0 +1,6 @@
+retriever,configuration,acc,n
+Embedding,top-3 no rerank (B1),92,466
+Embedding,top-20 no rerank (B3),96,466
+Embedding,top-20 + rerank (B3'),96,466
+Fusion,top-3 (B2),94,466
+Fusion,top-20 (B2'),95,466

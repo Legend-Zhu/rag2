@@ -1,0 +1,5 @@
+cond,label,acc,n
+A,No Retrieval (abstention allowed),2,466
+A_forced,No Retrieval (forced guess),68,466
+B2,RAG^2 Fusion (abstention allowed),94,466
+B2_forced,RAG^2 Fusion (forced guess),97,466

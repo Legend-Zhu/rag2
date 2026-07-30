@@ -13,8 +13,9 @@ logs/
 .DS_Store
 .zcode/
 
-# 论文（投稿中，暂不公开）
-paper/
+# 论文（投稿中，源码暂不公开；仅公开数据表）
+paper/*
+!paper/data/
 
 # 内部文档（仅保留 3 篇技术文档公开）
 docs/*

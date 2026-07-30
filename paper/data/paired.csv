@@ -1,0 +1,5 @@
+comparison,rescued,hurt,net,mcnemar_p_two_sided
+B2 vs A,433,1,432,0.000000
+B2 vs B1,17,4,13,0.007197
+B3 vs B2,10,4,6,0.179565
+C vs B2,21,1,20,0.000011

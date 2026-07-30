@@ -1,0 +1,6 @@
+cond,label,acc,ci_lo,ci_hi,gold_recall
+A,No Retrieval,2,1,3,
+B1,Vanilla RAG,92,89,94,91
+B2,RAG^2 Fusion,94,92,96,95
+B3,Long-context,96,94,97,97
+C,Single-doc Oracle,99,98,100,

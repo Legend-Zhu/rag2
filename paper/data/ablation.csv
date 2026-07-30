@@ -1,0 +1,8 @@
+method,recall
+Baseline (embedding),81
+BM25,81
+HyDE x3,87
+HyDE x5+BM25,85
+MAX IDF grep+emb,91
+Fusion (emb+grep+CE),92
+Fusion no grep,87
