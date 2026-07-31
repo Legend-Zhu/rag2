@@ -111,7 +111,10 @@ td { padding:8px; border-bottom:1px solid #f3f4f6; }
     <select id="search-mode" style="margin-bottom:12px">
       <option value="fusion">混合（dense + sparse + 重排）</option>
       <option value="vanilla">纯 dense</option>
-      <option value="sparse">纯 sparse</option>
+    </select>
+    <label>搜索语料</label>
+    <select id="search-corpus" style="margin-bottom:12px">
+      <option value="">arXiv 2026（主语料）</option>
     </select>
     <label>返回数量</label>
     <select id="search-topk" style="margin-bottom:12px">
@@ -187,7 +190,8 @@ async function uploadFiles() {
       method:'POST', body: fd
     });
     const d = await r.json();
-    document.getElementById('upload-status').innerHTML = '<div class="status status-success">✓ 上传 ' + d.n_files + ' 文件, ' + d.n_chunks + ' chunks</div>';
+    document.getElementById('upload-status').innerHTML = '<div class="status status-success">✓ 上传 ' + d.n_files + ' 文件, ' + d.n_chunks + ' chunks → 语料: ' + d.corpus_id + '</div>';
+    refreshCorpusList();
   } catch(e) {
     document.getElementById('upload-status').innerHTML = '<div class="status status-error">上传失败: ' + e + '</div>';
   }
@@ -203,6 +207,7 @@ async function ingestDir() {
   });
   if (d && !d.error) {
     document.getElementById('ingest-status').innerHTML = '<div class="status status-success">✓ ' + d.n_files + ' 文件 → ' + d.n_chunks + ' chunks (' + d.total_time_s + 's)</div>';
+    refreshCorpusList();
   } else {
     document.getElementById('ingest-status').innerHTML = '<div class="status status-error">入库失败: ' + (d?.error || '未知') + '</div>';
   }
@@ -211,7 +216,24 @@ async function loadIngestHistory() {
   const d = await api('/ingest/status');
   const tbody = document.getElementById('ingest-history');
   if (!d || !d.length) { tbody.innerHTML = '<tr><td colspan="5" style="color:#9ca3af;text-align:center">暂无记录</td></tr>'; return; }
-  tbody.innerHTML = d.map(r => '<tr><td>' + (r.timestamp||'').substring(0,19) + '</td><td>' + r.corpus_id + '</td><td>' + r.n_files + '</td><td>' + r.n_chunks + '</td><td>' + r.total_time_s + 's</td></tr>').join('');
+  tbody.innerHTML = d.map(r => '<tr><td>' + (r.timestamp||'').substring(0,19).replace('T',' ') + '</td><td>' + r.corpus_id + '</td><td>' + r.n_files + '</td><td>' + r.n_chunks + '</td><td>' + (r.total_time_s||0).toFixed(1) + 's</td></tr>').join('');
+  refreshCorpusList(d);
+}
+function refreshCorpusList(historyData) {
+  const sel = document.getElementById('search-corpus');
+  if (!sel) return;
+  const current = sel.value;
+  let opts = '<option value="">arXiv 2026（主语料）</option>';
+  const data = historyData || [];
+  const seen = new Set();
+  for (const r of data) {
+    if (r.corpus_id && !seen.has(r.corpus_id)) {
+      seen.add(r.corpus_id);
+      opts += '<option value="' + r.corpus_id + '">' + r.corpus_id + ' (' + r.n_chunks + ' chunks)</option>';
+    }
+  }
+  sel.innerHTML = opts;
+  if (current) sel.value = current;
 }
 
 // ── 检索 ──
@@ -220,11 +242,14 @@ async function doSearch() {
   if (!q) return;
   const mode = document.getElementById('search-mode').value;
   const topk = document.getElementById('search-topk').value;
+  const corpus = document.getElementById('search-corpus').value;
   document.getElementById('search-results').innerHTML = '<div class="status status-info"><span class="spinner"></span> 搜索中...</div>';
   const t0 = performance.now();
+  const body = {query: q, top_k: parseInt(topk), strategy: mode === 'vanilla' ? 'vanilla' : 'fusion'};
+  if (corpus) body.corpus_id = corpus;
   const d = await api('/search', {
     method:'POST', headers:{'Content-Type':'application/json'},
-    body: JSON.stringify({query: q, top_k: parseInt(topk), strategy: mode === 'vanilla' ? 'vanilla' : 'fusion'})
+    body: JSON.stringify(body)
   });
   const dt = ((performance.now() - t0) / 1000).toFixed(2);
   document.getElementById('search-time').textContent = dt + 's';

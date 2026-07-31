@@ -51,6 +51,7 @@ class SearchRequest(BaseModel):
     gold_cids: list[str] | None = None
     verdict: str = ""
     correct: bool | None = None
+    corpus_id: str | None = None  # 指定搜哪个语料（None=主语料）
 
 class SearchResponse(BaseModel):
     strategy: str
@@ -107,7 +108,7 @@ def startup():
             heading=doc.get("title", "")[:80],
             metadata={"filename": cid, "title": doc.get("title", "")},
         ))
-    qr.build_index(chunks, force_rebuild=True)
+    qr.build_index(chunks, force_rebuild=False)
     logging.info("Qdrant 索引建好 (%.1fs, %d points)", time.time() - t0, qr.count())
 
     # MLOps 组件
@@ -154,6 +155,21 @@ def health():
 
 @app.post("/search", response_model=SearchResponse)
 def search(req: SearchRequest):
+    # 如果指定了 corpus_id，用对应的上传语料检索器
+    if req.corpus_id and req.corpus_id != _state.get("corpus_id"):
+        upload_qrs = _state.get("upload_retrievers", {})
+        qr = upload_qrs.get(req.corpus_id)
+        if not qr:
+            raise HTTPException(404, f"语料库 '{req.corpus_id}' 不存在")
+        t0 = time.time()
+        results = qr.search(req.query, top_k=req.top_k, use_rerank=(req.strategy != "vanilla"))
+        latency = time.time() - t0
+        return SearchResponse(
+            strategy=req.strategy or "fusion", results=results[:req.top_k],
+            latency_s=round(latency, 3), n_results=len(results),
+        )
+
+    # 默认搜主语料
     router = _state.get("ab_router")
     if not router:
         raise HTTPException(503, "服务未就绪")
@@ -321,8 +337,22 @@ async def upload_files(
         finally:
             tmp_path.unlink(missing_ok=True)
 
-    if qr and all_chunks:
-        qr.upsert_chunks(all_chunks)
+    if all_chunks:
+        # 用主 retriever 的 client，upsert 到独立集合（共享 embedder + Qdrant 连接）
+        main_qr = _state.get("retriever")
+        if main_qr:
+            # 创建一个轻量 retriever 复用主 client + embedder
+            from rag2.methods.qdrant_retriever import QdrantRetriever
+            upload_qr = QdrantRetriever.__new__(QdrantRetriever)
+            upload_qr.collection_name = corpus_id
+            upload_qr.client = main_qr.client           # 复用 Qdrant 连接
+            upload_qr._embedder = main_qr._embedder      # 复用编码器
+            upload_qr._cross_encoder = main_qr._cross_encoder
+            upload_qr.cross_encoder_model = main_qr.cross_encoder_model
+            upload_qr.device = main_qr.device
+            upload_qr.build_index(all_chunks, force_rebuild=False)
+            _state["upload_retrievers"] = _state.get("upload_retrievers", {})
+            _state["upload_retrievers"][corpus_id] = upload_qr
 
     return {"corpus_id": corpus_id, "n_files": n_files,
             "n_chunks": len(all_chunks), "errors": errors, "status": "ok"}
@@ -381,7 +411,10 @@ def web_app():
     """RAG² Web 平台（4 模块 SPA）。"""
     from fastapi.responses import HTMLResponse
     from rag2.mlops.web_ui import WEB_UI
-    return HTMLResponse(WEB_UI)
+    return HTMLResponse(WEB_UI, headers={
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        "Pragma": "no-cache",
+    })
 
 @app.get("/dashboard")
 def dashboard():
