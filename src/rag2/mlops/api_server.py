@@ -37,8 +37,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-from rag2.methods.retriever import Retriever
-from rag2.methods.fusion_retriever import FusionRetriever
+from rag2.methods.qdrant_retriever import QdrantRetriever
 from rag2.mlops.metrics import MetricsCollector
 from rag2.mlops.index_manager import IndexManager
 from rag2.mlops.ab_router import ABRouter
@@ -91,47 +90,46 @@ def startup():
 
     all_docs = [{"title": d["title"], "text": d["text"]} for d in corpus.values()]
 
-    # 建检索器
-    logging.info("建 embedding 索引 (%d 文档)...", len(all_docs))
+    # 建 Qdrant 检索器
+    from rag2.methods.qdrant_retriever import QdrantRetriever
+    logging.info("建 Qdrant 索引 (%d 文档)...", len(all_docs))
     t0 = time.time()
-    ret = Retriever()
-    ret.build_index(all_docs)
-    logging.info("embedding 索引建好 (%.1fs)", time.time() - t0)
+    qr = QdrantRetriever(collection_name=corpus_id)
 
-    # HyDE 缓存
-    hyde_path = f"cache/{corpus_id}_hyde_rewrites.json"
-    if not Path(hyde_path).exists():
-        hyde_path = "cache/hyde_rewrites.json"
-
-    fr = FusionRetriever(retriever=ret, corpus=corpus, hyde_cache_path=hyde_path)
-    _ = fr.inverted_index  # 预建 grep 索引
-    logging.info("融合检索器就绪")
+    # 构建 chunks 并建索引
+    from rag2.ingest.models import Chunk
+    chunks = []
+    for cid, doc in corpus.items():
+        chunks.append(Chunk(
+            chunk_id=f"{cid}_0000",
+            parent_doc_id=cid,
+            text=doc["text"],
+            heading=doc.get("title", "")[:80],
+            metadata={"filename": cid, "title": doc.get("title", "")},
+        ))
+    qr.build_index(chunks, force_rebuild=True)
+    logging.info("Qdrant 索引建好 (%.1fs, %d points)", time.time() - t0, qr.count())
 
     # MLOps 组件
     mc = MetricsCollector()
     im = IndexManager()
 
-    # 注册索引（如果还没注册）
+    # 注册索引
     active = im.get_active(corpus_id)
     if not active:
         im.register(
             corpus_id=corpus_id,
             corpus=corpus,
             embed_dim=1024,
-            grep_index="cache/grep_inverted_index.json",
-            hyde_cache=hyde_path,
+            extra={"backend": "qdrant", "n_chunks": len(chunks)},
         )
 
-    # A/B 路由器
+    # A/B 路由器：vanilla (dense only) vs fusion (dense+sparse+rerank)
     def vanilla_search(query, top_k=3):
-        results = ret.search(query, top_k_recall=top_k, top_k_rerank=top_k, rerank=False)
-        title_to_cid = {d["title"]: cid for cid, d in corpus.items()}
-        return [{"cid": title_to_cid.get(r["title"], ""), "title": r["title"],
-                 "text": r["text"], "score": r["score"], "source": "emb"}
-                for r in results]
+        return qr.search_dense(query, top_k=top_k)
 
     def fusion_search(query, top_k=3):
-        return fr.search(query, top_k=top_k, use_grep=True, use_rerank=True)
+        return qr.search(query, top_k=top_k, use_rerank=True)
 
     router = ABRouter(
         strategies={"vanilla": vanilla_search, "fusion": fusion_search},
@@ -140,7 +138,7 @@ def startup():
 
     _state.update({
         "corpus": corpus, "corpus_id": corpus_id,
-        "retriever": ret, "fusion_retriever": fr,
+        "retriever": qr,  # QdrantRetriever
         "metrics": mc, "index_manager": im, "ab_router": router,
     })
     logging.info("RAG² API 启动完成")

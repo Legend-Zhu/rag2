@@ -22,3 +22,4 @@ docs/*
 !docs/开发手册.md
 !docs/架构决策.md
 !docs/W1-共享层方案.md
+qdrant_data/

@@ -30,13 +30,13 @@ class IngestPipeline:
         self,
         parser: DocumentParser | None = None,
         chunker: RecursiveChunker | None = None,
-        retriever=None,
+        retriever=None,               # QdrantRetriever 实例
         index_manager=None,
         metrics=None,
     ):
         self.parser = parser or DocumentParser()
         self.chunker = chunker or RecursiveChunker()
-        self.retriever = retriever
+        self.retriever = retriever    # QdrantRetriever（支持 build_index/upsert/delete）
         self.index_manager = index_manager
         self.metrics = metrics
 
@@ -70,11 +70,11 @@ class IngestPipeline:
         chunk_time = time.time() - t0
         logger.info("Phase 2 分块: %d chunks, %.1fs", len(all_chunks), chunk_time)
 
-        # Phase 3: 建索引（chunk 级）
+        # Phase 3: 建索引（Qdrant chunk 级）
         index_time = 0.0
         if build_index and self.retriever:
             t0 = time.time()
-            self.retriever.build_chunk_index(all_chunks)
+            self.retriever.build_index(all_chunks, force_rebuild=True)
             index_time = time.time() - t0
             logger.info("Phase 3 索引: %.1fs (%d chunks)", index_time, len(all_chunks))
 
@@ -133,7 +133,7 @@ class IngestPipeline:
         chunks = self.chunker.chunk(doc)
 
         if self.retriever:
-            self.retriever.build_chunk_index(chunks)
+            self.retriever.upsert_chunks(chunks)  # Qdrant 实时增量 upsert
 
         return {
             "corpus_id": corpus_id,
@@ -193,13 +193,16 @@ class IngestPipeline:
                      dir_path.name, n_new, n_removed, n_unchanged)
 
         # 只解析新增/变化的文件（未变的跳过）
-        # 注意：增量更新仍需全量重建索引（因为 FAISS 不支持增量 add 到已有索引）
-        # 但解析阶段跳过未变文件，节省时间
+        # Qdrant 支持实时增量：删除旧 chunk + upsert 新 chunk
         all_docs = self.parser.parse_dir(dir_path)
         all_chunks = self.chunker.chunk_many(all_docs)
 
         if self.retriever:
-            self.retriever.build_chunk_index(all_chunks)
+            # Qdrant 增量：upsert 新/变化的 chunk（自动覆盖同 ID）
+            self.retriever.upsert_chunks(all_chunks)
+            # 删除已移除文件的 chunk
+            if removed_ids:
+                self.retriever.delete_chunks(list(removed_ids))
 
         if self.index_manager:
             corpus_dict = {c.chunk_id: {"title": c.title_for_index, "text": c.text} for c in all_chunks}
