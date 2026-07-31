@@ -166,70 +166,117 @@ function switchTab(name) {
   document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
   document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
   document.getElementById('tab-' + name).classList.remove('hidden');
-  event.target.classList.add('active');
+  if (event && event.target) event.target.classList.add('active');
   if (name === 'dashboard') loadDashboard();
   if (name === 'library') loadIngestHistory();
 }
-async function api(url, opts = {}) {
-  try {
-    const r = await fetch(API + url, opts);
-    return await r.json();
-  } catch(e) { console.error(e); return null; }
+
+// 统一 HTTP 请求（回调风格，无 async/await，无 fetch）
+function httpGet(url, cb) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', API + url, true);
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        try { cb(null, JSON.parse(xhr.responseText)); }
+        catch(e) { cb('JSON parse: ' + xhr.responseText.substring(0,100)); }
+      } else { cb('HTTP ' + xhr.status); }
+    }
+  };
+  xhr.send();
+}
+function httpPost(url, body, cb) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', API + url, true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        try { cb(null, JSON.parse(xhr.responseText)); }
+        catch(e) { cb('JSON parse: ' + xhr.responseText.substring(0,100)); }
+      } else { cb('HTTP ' + xhr.status + ': ' + xhr.responseText.substring(0,100)); }
+    }
+  };
+  xhr.send(JSON.stringify(body));
 }
 
 // ── 文档库 ──
-async function uploadFiles() {
-  const input = document.getElementById('file-input');
+function uploadFiles() {
+  var input = document.getElementById('file-input');
   if (!input.files.length) return;
-  document.getElementById('upload-status').innerHTML = '<div class="status status-info"><span class="spinner"></span> 上传中...</div>';
-  const fd = new FormData();
-  for (const f of input.files) fd.append('files', f);
-  fd.append('corpus_id', document.getElementById('upload-corpus').value || 'upload');
-  try {
-    const r = await fetch(API + '/upload?corpus_id=' + (document.getElementById('upload-corpus').value || 'upload'), {
-      method:'POST', body: fd
-    });
-    const d = await r.json();
-    document.getElementById('upload-status').innerHTML = '<div class="status status-success">✓ 上传 ' + d.n_files + ' 文件, ' + d.n_chunks + ' chunks → 语料: ' + d.corpus_id + '</div>';
-    refreshCorpusList();
-  } catch(e) {
-    document.getElementById('upload-status').innerHTML = '<div class="status status-error">上传失败: ' + e + '</div>';
-  }
+  document.getElementById('upload-status').innerHTML = '<div class="status status-info">上传中...</div>';
+  var fd = new FormData();
+  for (var i = 0; i < input.files.length; i++) fd.append('files', input.files[i]);
+  var cid = document.getElementById('upload-corpus').value || 'upload';
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', API + '/upload?corpus_id=' + cid, true);
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        try {
+          var d = JSON.parse(xhr.responseText);
+          document.getElementById('upload-status').innerHTML =
+            '<div class="status status-success">✓ 上传 ' + d.n_files + ' 文件, ' + d.n_chunks +
+            ' chunks → 语料: ' + d.corpus_id + '</div>';
+          loadIngestHistory();
+        } catch(e) {
+          document.getElementById('upload-status').innerHTML = '<div class="status status-error">解析失败</div>';
+        }
+      } else {
+        document.getElementById('upload-status').innerHTML = '<div class="status status-error">上传失败: HTTP ' + xhr.status + '</div>';
+      }
+    }
+  };
+  xhr.send(fd);
 }
-async function ingestDir() {
-  const dir = document.getElementById('ingest-dir').value;
-  const cid = document.getElementById('ingest-corpus').value || 'docs';
+function ingestDir() {
+  var dir = document.getElementById('ingest-dir').value;
+  var cid = document.getElementById('ingest-corpus').value || 'docs';
   if (!dir) return;
-  document.getElementById('ingest-status').innerHTML = '<div class="status status-info"><span class="spinner"></span> 入库中（可能需要几分钟）...</div>';
-  const d = await api('/ingest/dir', {
-    method:'POST', headers:{'Content-Type':'application/json'},
-    body: JSON.stringify({dir_path: dir, corpus_id: cid, build_index: true})
+  document.getElementById('ingest-status').innerHTML = '<div class="status status-info">入库中...</div>';
+  httpPost('/ingest/dir', {dir_path: dir, corpus_id: cid, build_index: true}, function(err, d) {
+    if (err) {
+      document.getElementById('ingest-status').innerHTML = '<div class="status status-error">失败: ' + err + '</div>';
+    } else if (d && d.n_files !== undefined) {
+      document.getElementById('ingest-status').innerHTML =
+        '<div class="status status-success">✓ ' + d.n_files + ' 文件 → ' + d.n_chunks + ' chunks (' + d.total_time_s + 's)</div>';
+      loadIngestHistory();
+    } else {
+      document.getElementById('ingest-status').innerHTML = '<div class="status status-error">失败: ' + (d && d.error || '未知') + '</div>';
+    }
   });
-  if (d && !d.error) {
-    document.getElementById('ingest-status').innerHTML = '<div class="status status-success">✓ ' + d.n_files + ' 文件 → ' + d.n_chunks + ' chunks (' + d.total_time_s + 's)</div>';
-    refreshCorpusList();
-  } else {
-    document.getElementById('ingest-status').innerHTML = '<div class="status status-error">入库失败: ' + (d?.error || '未知') + '</div>';
-  }
 }
-async function loadIngestHistory() {
-  const d = await api('/ingest/status');
-  const tbody = document.getElementById('ingest-history');
-  if (!d || !d.length) { tbody.innerHTML = '<tr><td colspan="5" style="color:#9ca3af;text-align:center">暂无记录</td></tr>'; return; }
-  tbody.innerHTML = d.map(r => '<tr><td>' + (r.timestamp||'').substring(0,19).replace('T',' ') + '</td><td>' + r.corpus_id + '</td><td>' + r.n_files + '</td><td>' + r.n_chunks + '</td><td>' + (r.total_time_s||0).toFixed(1) + 's</td></tr>').join('');
-  refreshCorpusList(d);
+function loadIngestHistory() {
+  httpGet('/ingest/status', function(err, d) {
+    var tbody = document.getElementById('ingest-history');
+    if (err || !d || !d.length) {
+      tbody.innerHTML = '<tr><td colspan="5" style="color:#9ca3af;text-align:center">暂无记录</td></tr>';
+      return;
+    }
+    var html = '';
+    for (var i = 0; i < d.length; i++) {
+      var r = d[i];
+      html += '<tr><td>' + (r.timestamp||'').substring(0,19).replace('T',' ') + '</td>' +
+        '<td>' + r.corpus_id + '</td><td>' + r.n_files + '</td><td>' + r.n_chunks + '</td>' +
+        '<td>' + (r.total_time_s||0).toFixed(1) + 's</td></tr>';
+    }
+    tbody.innerHTML = html;
+    refreshCorpusList(d);
+  });
 }
-function refreshCorpusList(historyData) {
-  const sel = document.getElementById('search-corpus');
+function refreshCorpusList(data) {
+  var sel = document.getElementById('search-corpus');
   if (!sel) return;
-  const current = sel.value;
-  let opts = '<option value="">arXiv 2026（主语料）</option>';
-  const data = historyData || [];
-  const seen = new Set();
-  for (const r of data) {
-    if (r.corpus_id && !seen.has(r.corpus_id)) {
-      seen.add(r.corpus_id);
-      opts += '<option value="' + r.corpus_id + '">' + r.corpus_id + ' (' + r.n_chunks + ' chunks)</option>';
+  var current = sel.value;
+  var opts = '<option value="">arXiv 2026（主语料）</option>';
+  if (data) {
+    var seen = {};
+    for (var i = 0; i < data.length; i++) {
+      var cid = data[i].corpus_id;
+      if (cid && !seen[cid]) {
+        seen[cid] = true;
+        opts += '<option value="' + cid + '">' + cid + ' (' + data[i].n_chunks + ' chunks)</option>';
+      }
     }
   }
   sel.innerHTML = opts;
@@ -237,83 +284,118 @@ function refreshCorpusList(historyData) {
 }
 
 // ── 检索 ──
-async function doSearch() {
-  const q = document.getElementById('search-query').value;
+function doSearch() {
+  var q = document.getElementById('search-query').value;
   if (!q) return;
-  const mode = document.getElementById('search-mode').value;
-  const topk = document.getElementById('search-topk').value;
-  const corpus = document.getElementById('search-corpus').value;
-  document.getElementById('search-results').innerHTML = '<div class="status status-info"><span class="spinner"></span> 搜索中...</div>';
-  const t0 = performance.now();
-  const body = {query: q, top_k: parseInt(topk), strategy: mode === 'vanilla' ? 'vanilla' : 'fusion'};
+  var mode = document.getElementById('search-mode').value;
+  var topk = parseInt(document.getElementById('search-topk').value);
+  var corpus = document.getElementById('search-corpus').value;
+  document.getElementById('search-results').innerHTML = '<div class="status status-info">搜索中...</div>';
+  document.getElementById('search-time').textContent = '';
+  var t0 = Date.now();
+  var body = {query: q, top_k: topk, strategy: mode === 'vanilla' ? 'vanilla' : 'fusion'};
   if (corpus) body.corpus_id = corpus;
-  const d = await api('/search', {
-    method:'POST', headers:{'Content-Type':'application/json'},
-    body: JSON.stringify(body)
+  httpPost('/search', body, function(err, d) {
+    var dt = ((Date.now() - t0) / 1000).toFixed(2);
+    document.getElementById('search-time').textContent = dt + 's';
+    if (err) {
+      document.getElementById('search-results').innerHTML = '<div class="status status-error">搜索失败: ' + err + '</div>';
+      return;
+    }
+    if (!d || !d.results) {
+      document.getElementById('search-results').innerHTML = '<div class="status status-error">无结果</div>';
+      return;
+    }
+    var html = '<div class="card"><h2>结果（' + d.n_results + ' 条, 策略: ' + d.strategy + ', ' + dt + 's）</h2>';
+    for (var i = 0; i < d.results.length; i++) {
+      var r = d.results[i];
+      var title = (r.title || r.heading || '').substring(0,80);
+      var src = r.source || '';
+      var badgeClass = src.indexOf('sparse') >= 0 ? 'badge-green' : 'badge-blue';
+      var score = (r.score || 0).toFixed(4);
+      var rerank = r.rerank_score ? ' → rerank: ' + r.rerank_score.toFixed(4) : '';
+      var snippet = (r.text || '').substring(0,200);
+      html += '<div class="result-item"><div class="title">' + title +
+        ' <span class="badge ' + badgeClass + '">' + src + '</span></div>' +
+        '<div class="meta">score: ' + score + rerank + '</div>' +
+        '<div class="snippet">' + snippet + '...</div></div>';
+    }
+    html += '</div>';
+    document.getElementById('search-results').innerHTML = html;
   });
-  const dt = ((performance.now() - t0) / 1000).toFixed(2);
-  document.getElementById('search-time').textContent = dt + 's';
-  if (!d) { document.getElementById('search-results').innerHTML = '<div class="status status-error">搜索失败</div>'; return; }
-  let html = '<div class="card"><h2>结果（' + d.n_results + ' 条, 策略: ' + d.strategy + ', ' + dt + 's）</h2>';
-  for (const r of (d.results || [])) {
-    html += '<div class="result-item"><div class="title">' + (r.title || r.heading || '').substring(0,80) +
-      ' <span class="badge ' + (r.source?.includes('sparse') ? 'badge-green' : 'badge-blue') + '">' + (r.source||'') + '</span></div>' +
-      '<div class="meta">score: ' + (r.score||0).toFixed(4) + (r.rerank_score ? ' → rerank: ' + r.rerank_score.toFixed(4) : '') + '</div>' +
-      '<div class="snippet">' + (r.text||'').substring(0,200) + '...</div></div>';
-  }
-  html += '</div>';
-  document.getElementById('search-results').innerHTML = html;
 }
 
 // ── Agent 报告 ──
-async function generateReport() {
-  const topic = document.getElementById('report-topic').value;
+function generateReport() {
+  var topic = document.getElementById('report-topic').value;
   if (!topic) return;
-  const btn = document.getElementById('report-btn');
+  var btn = document.getElementById('report-btn');
   btn.disabled = true; btn.textContent = '生成中...';
-  document.getElementById('report-status').innerHTML = '<div class="status status-info"><span class="spinner"></span> Agent 正在检索和写作（约 1-2 分钟）...</div>';
+  document.getElementById('report-status').innerHTML = '<div class="status status-info">Agent 正在检索和写作（约 1-2 分钟）...</div>';
   document.getElementById('report-output').innerHTML = '';
-  const d = await api('/report/generate', {
-    method:'POST', headers:{'Content-Type':'application/json'},
-    body: JSON.stringify({topic: topic, max_tool_calls: 25})
-  });
-  btn.disabled = false; btn.textContent = '生成报告';
-  if (!d) { document.getElementById('report-status').innerHTML = '<div class="status status-error">生成失败</div>'; return; }
-  document.getElementById('report-status').innerHTML = '<div class="status status-success">✓ ' + d.sections.length + ' 章节, ' + d.total_llm_calls + ' 次 LLM 调用, ' + d.elapsed_s + 's</div>';
-  let html = '<div class="card"><h2>' + topic + '</h2>';
-  if (d.summary) html += '<p style="margin:12px 0;color:#374151;line-height:1.6">' + d.summary + '</p>';
-  html += '</div>';
-  for (const s of d.sections) {
-    html += '<div class="section-preview"><h3>' + s.title + '</h3><p>' + (s.content||'').replace(/\n/g,'<br>') + '</p>';
-    if (s.cited_docs && s.cited_docs.length) html += '<div style="margin-top:8px;font-size:0.8em;color:#6b7280">引用: ' + s.cited_docs.join(', ') + '</div>';
+  httpPost('/report/generate', {topic: topic, max_tool_calls: 25}, function(err, d) {
+    btn.disabled = false; btn.textContent = '生成报告';
+    if (err || !d) {
+      document.getElementById('report-status').innerHTML = '<div class="status status-error">生成失败: ' + (err||'') + '</div>';
+      return;
+    }
+    document.getElementById('report-status').innerHTML =
+      '<div class="status status-success">✓ ' + d.sections.length + ' 章节, ' +
+      d.total_llm_calls + ' 次 LLM 调用, ' + d.elapsed_s + 's</div>';
+    var html = '<div class="card"><h2>' + topic + '</h2>';
+    if (d.summary) html += '<p style="margin:12px 0;color:#374151;line-height:1.6">' + d.summary + '</p>';
     html += '</div>';
-  }
-  document.getElementById('report-output').innerHTML = html;
+    for (var i = 0; i < d.sections.length; i++) {
+      var s = d.sections[i];
+      html += '<div class="section-preview"><h3>' + s.title + '</h3><p>' +
+        (s.content||'').replace(/\n/g,'<br>') + '</p>';
+      if (s.cited_docs && s.cited_docs.length) {
+        html += '<div style="margin-top:8px;font-size:0.8em;color:#6b7280">引用: ' + s.cited_docs.join(', ') + '</div>';
+      }
+      html += '</div>';
+    }
+    document.getElementById('report-output').innerHTML = html;
+  });
 }
 
 // ── 监控 ──
-async function loadDashboard() {
-  const m = await api('/metrics');
-  if (!m) return;
-  document.getElementById('m-cost').textContent = '$' + (m.cost.cost_usd||0).toFixed(2);
-  document.getElementById('m-cost-sub').textContent = (m.cost.n_calls||0) + ' 次调用';
-  document.getElementById('m-retlat').textContent = (m.retrieval_latency.p50||0).toFixed(1) + 's';
-  document.getElementById('m-retlat-sub').textContent = 'P95: ' + (m.retrieval_latency.p95||0).toFixed(1) + 's';
-  document.getElementById('m-llmlat').textContent = (m.llm_latency.p50||0).toFixed(1) + 's';
-  document.getElementById('m-llmlat-sub').textContent = 'P95: ' + (m.llm_latency.p95||0).toFixed(1) + 's';
-  document.getElementById('m-cache').textContent = ((m.cache_hit_rate||0)*100).toFixed(0) + '%';
-
-  const ab = await api('/ab/results');
-  const tbody = document.getElementById('ab-body');
-  if (ab && ab.length) {
-    tbody.innerHTML = ab.map(r => '<tr><td><span class="badge ' + (r.strategy==='fusion'?'badge-green':'badge-blue') + '">' + r.strategy + '</span></td><td>' + r.n + '</td><td>' + (r.accuracy*100).toFixed(0) + '%</td><td>' + (r.avg_latency||0).toFixed(1) + 's</td></tr>').join('');
-  } else { tbody.innerHTML = '<tr><td colspan="4" style="color:#9ca3af;text-align:center">暂无数据</td></tr>'; }
-
-  const recent = await api('/recent?limit=10');
-  const rbody = document.getElementById('recent-body');
-  if (recent && recent.length) {
-    rbody.innerHTML = recent.map(r => '<tr><td>' + (r.timestamp||'').substring(11,19) + '</td><td>' + (r.query||'').substring(0,40) + '</td><td>' + r.strategy + '</td><td>' + r.n_results + '</td><td>' + (r.latency_s||0).toFixed(1) + 's</td></tr>').join('');
-  } else { rbody.innerHTML = '<tr><td colspan="5" style="color:#9ca3af;text-align:center">暂无查询</td></tr>'; }
+function loadDashboard() {
+  httpGet('/metrics', function(err, m) {
+    if (err || !m) return;
+    document.getElementById('m-cost').textContent = '$' + ((m.cost && m.cost.cost_usd)||0).toFixed(2);
+    document.getElementById('m-cost-sub').textContent = ((m.cost && m.cost.n_calls)||0) + ' 次调用';
+    document.getElementById('m-retlat').textContent = ((m.retrieval_latency && m.retrieval_latency.p50)||0).toFixed(1) + 's';
+    document.getElementById('m-retlat-sub').textContent = 'P95: ' + ((m.retrieval_latency && m.retrieval_latency.p95)||0).toFixed(1) + 's';
+    document.getElementById('m-llmlat').textContent = ((m.llm_latency && m.llm_latency.p50)||0).toFixed(1) + 's';
+    document.getElementById('m-llmlat-sub').textContent = 'P95: ' + ((m.llm_latency && m.llm_latency.p95)||0).toFixed(1) + 's';
+    document.getElementById('m-cache').textContent = (((m.cache_hit_rate)||0)*100).toFixed(0) + '%';
+  });
+  httpGet('/ab/results', function(err, ab) {
+    var tbody = document.getElementById('ab-body');
+    if (err || !ab || !ab.length) {
+      tbody.innerHTML = '<tr><td colspan="4" style="color:#9ca3af;text-align:center">暂无数据</td></tr>';
+      return;
+    }
+    var html = '';
+    for (var i = 0; i < ab.length; i++) {
+      var r = ab[i];
+      html += '<tr><td><span class="badge ' + (r.strategy==='fusion'?'badge-green':'badge-blue') + '">' + r.strategy + '</span></td><td>' + r.n + '</td><td>' + (r.accuracy*100).toFixed(0) + '%</td><td>' + (r.avg_latency||0).toFixed(1) + 's</td></tr>';
+    }
+    tbody.innerHTML = html;
+  });
+  httpGet('/recent?limit=10', function(err, recent) {
+    var rbody = document.getElementById('recent-body');
+    if (err || !recent || !recent.length) {
+      rbody.innerHTML = '<tr><td colspan="5" style="color:#9ca3af;text-align:center">暂无查询</td></tr>';
+      return;
+    }
+    var html = '';
+    for (var i = 0; i < recent.length; i++) {
+      var r = recent[i];
+      html += '<tr><td>' + (r.timestamp||'').substring(11,19) + '</td><td>' + (r.query||'').substring(0,40) + '</td><td>' + r.strategy + '</td><td>' + r.n_results + '</td><td>' + (r.latency_s||0).toFixed(1) + 's</td></tr>';
+    }
+    rbody.innerHTML = html;
+  });
 }
 </script>
 </body></html>"""
