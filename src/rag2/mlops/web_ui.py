@@ -218,7 +218,7 @@ function uploadFiles() {
           document.getElementById('upload-status').innerHTML =
             '<div class="status status-success">✓ 上传 ' + d.n_files + ' 文件, ' + d.n_chunks +
             ' chunks → 语料: ' + d.corpus_id + '</div>';
-          loadIngestHistory();
+          addCorpusOption(d.corpus_id, d.n_chunks);
         } catch(e) {
           document.getElementById('upload-status').innerHTML = '<div class="status status-error">解析失败</div>';
         }
@@ -281,6 +281,20 @@ function refreshCorpusList(data) {
   }
   sel.innerHTML = opts;
   if (current) sel.value = current;
+}
+function addCorpusOption(cid, nChunks) {
+  var sel = document.getElementById('search-corpus');
+  if (!sel || !cid) return;
+  for (var i = 0; i < sel.options.length; i++) {
+    if (sel.options[i].value === cid) {
+      sel.options[i].text = cid + ' (' + nChunks + ' chunks)';
+      return;
+    }
+  }
+  var opt = document.createElement('option');
+  opt.value = cid;
+  opt.text = cid + ' (' + nChunks + ' chunks)';
+  sel.appendChild(opt);
 }
 
 // ── 检索 ──
