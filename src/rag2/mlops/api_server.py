@@ -90,11 +90,11 @@ def startup():
 
     all_docs = [{"title": d["title"], "text": d["text"]} for d in corpus.values()]
 
-    # 建 Qdrant 检索器
+    # 建 Qdrant 检索器（嵌入式模式，无需 Docker）
     from rag2.methods.qdrant_retriever import QdrantRetriever
     logging.info("建 Qdrant 索引 (%d 文档)...", len(all_docs))
     t0 = time.time()
-    qr = QdrantRetriever(collection_name=corpus_id)
+    qr = QdrantRetriever(collection_name=corpus_id, use_embedded=True, embedded_path="qdrant_data")
 
     # 构建 chunks 并建索引
     from rag2.ingest.models import Chunk
@@ -284,11 +284,101 @@ def ingest_status(corpus_id: str):
     return mc.get_ingestion_summary(corpus_id)
 
 
+# ── 文件上传端点 ────────────────────────────────────────
+
+@app.post("/upload")
+async def upload_files(files: list[bytes] = [], corpus_id: str = "upload"):
+    """上传文件 → 解析 → 分块 → Qdrant 入库。"""
+    from rag2.ingest import DocumentParser, RecursiveChunker
+    from rag2.ingest.models import ParsedDoc, Chunk
+    import tempfile
+
+    parser = DocumentParser()
+    chunker = RecursiveChunker()
+    qr = _state.get("retriever")
+
+    all_chunks = []
+    n_files = 0
+    for file_bytes in files:
+        # 写临时文件
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".tmp") as tmp:
+            tmp.write(file_bytes)
+            tmp_path = Path(tmp.name)
+        try:
+            doc = parser.parse(tmp_path)
+            chunks = chunker.chunk(doc)
+            all_chunks.extend(chunks)
+            n_files += 1
+        except Exception as e:
+            logging.warning("解析失败: %s", e)
+        finally:
+            tmp_path.unlink(missing_ok=True)
+
+    if qr and all_chunks:
+        qr.upsert_chunks(all_chunks)
+
+    return {"corpus_id": corpus_id, "n_files": n_files,
+            "n_chunks": len(all_chunks), "status": "ok"}
+
+
+# ── Agent 报告生成端点 ─────────────────────────────────
+
+class ReportRequest(BaseModel):
+    topic: str
+    max_tool_calls: int = 25
+
+@app.post("/report/generate")
+def generate_report(req: ReportRequest):
+    """触发 Agent 报告生成（同步返回完整报告）。"""
+    import os
+    from rag2.agent.rag2_agent_v3 import Rag2AgentV3
+
+    api_key = os.environ.get("DMX_API_KEY", "")
+    if not api_key:
+        raise HTTPException(503, "DMX_API_KEY 未设置")
+
+    qr = _state.get("retriever")
+    if not qr:
+        raise HTTPException(503, "检索器未就绪")
+
+    from openai import OpenAI
+    client = OpenAI(api_key=api_key, base_url="https://www.dmxapi.cn/v1")
+
+    def search_fn(query, top_k=10):
+        return qr.search_dense(query, top_k=top_k)
+
+    def read_fn(doc_id, max_chars=2000):
+        doc = qr.read_doc(doc_id)
+        if doc:
+            return f"[{doc['doc_id']}] {doc.get('title','')}\n\n{doc['text'][:max_chars]}"
+        return f"Document {doc_id} not found."
+
+    def llm_fn(messages, max_tokens=1000):
+        resp = client.chat.completions.create(
+            model="deepseek-v4-flash", messages=messages,
+            max_tokens=max_tokens, temperature=0.3,
+        )
+        return resp.choices[0].message.content or ""
+
+    agent = Rag2AgentV3(search_fn=search_fn, read_fn=read_fn, llm_fn=llm_fn,
+                         max_followups=2, max_search_retries=2)
+    report = agent.run(req.topic)
+    return report.to_dict()
+
+
 # ── HTML 仪表盘（零依赖，内嵌 FastAPI）─────────────────
 
 @app.get("/dashboard")
+@app.get("/app")
+def web_app():
+    """RAG² Web 平台（4 模块 SPA）。"""
+    from fastapi.responses import HTMLResponse
+    from rag2.mlops.web_ui import WEB_UI
+    return HTMLResponse(WEB_UI)
+
+@app.get("/dashboard")
 def dashboard():
-    """自包含 HTML 仪表盘，通过 JS 调用 /metrics /ab/results /indices /recent。"""
+    """旧版仪表盘（简化版）。"""
     from fastapi.responses import HTMLResponse
     return HTMLResponse(_DASHBOARD_HTML)
 
