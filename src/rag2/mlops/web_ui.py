@@ -208,7 +208,7 @@ async function ingestDir() {
   }
 }
 async function loadIngestHistory() {
-  const d = await api('/ingest/status/upload');
+  const d = await api('/ingest/status');
   const tbody = document.getElementById('ingest-history');
   if (!d || !d.length) { tbody.innerHTML = '<tr><td colspan="5" style="color:#9ca3af;text-align:center">暂无记录</td></tr>'; return; }
   tbody.innerHTML = d.map(r => '<tr><td>' + (r.timestamp||'').substring(0,19) + '</td><td>' + r.corpus_id + '</td><td>' + r.n_files + '</td><td>' + r.n_chunks + '</td><td>' + r.total_time_s + 's</td></tr>').join('');

@@ -275,9 +275,10 @@ def ingest_file(file_path: str, corpus_id: str = ""):
     )
     return pipeline.ingest_file(fp, corpus_id=corpus_id)
 
+@app.get("/ingest/status")
 @app.get("/ingest/status/{corpus_id}")
-def ingest_status(corpus_id: str):
-    """查看入库历史。"""
+def ingest_status(corpus_id: str | None = None):
+    """查看入库历史（不带 corpus_id 返回全部）。"""
     mc = _state.get("metrics")
     if not mc:
         raise HTTPException(503, "服务未就绪")
