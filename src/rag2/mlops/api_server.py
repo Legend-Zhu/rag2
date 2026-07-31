@@ -33,7 +33,7 @@ os.environ.setdefault("HF_HUB_OFFLINE", "1")
 os.environ.setdefault("TQDM_DISABLE", "1")
 os.environ.setdefault("HF_ENDPOINT", "https://hf-mirror.com")
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -287,10 +287,12 @@ def ingest_status(corpus_id: str):
 # ── 文件上传端点 ────────────────────────────────────────
 
 @app.post("/upload")
-async def upload_files(files: list[bytes] = [], corpus_id: str = "upload"):
+async def upload_files(
+    files: list[UploadFile] = [],
+    corpus_id: str = "upload",
+):
     """上传文件 → 解析 → 分块 → Qdrant 入库。"""
     from rag2.ingest import DocumentParser, RecursiveChunker
-    from rag2.ingest.models import ParsedDoc, Chunk
     import tempfile
 
     parser = DocumentParser()
@@ -299,10 +301,13 @@ async def upload_files(files: list[bytes] = [], corpus_id: str = "upload"):
 
     all_chunks = []
     n_files = 0
-    for file_bytes in files:
-        # 写临时文件
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".tmp") as tmp:
-            tmp.write(file_bytes)
+    errors = []
+    for f in files:
+        # 写临时文件（保留原始扩展名）
+        suffix = Path(f.filename or "tmp").suffix or ".tmp"
+        with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
+            content = await f.read()
+            tmp.write(content)
             tmp_path = Path(tmp.name)
         try:
             doc = parser.parse(tmp_path)
@@ -310,7 +315,8 @@ async def upload_files(files: list[bytes] = [], corpus_id: str = "upload"):
             all_chunks.extend(chunks)
             n_files += 1
         except Exception as e:
-            logging.warning("解析失败: %s", e)
+            logging.warning("解析失败 %s: %s", f.filename, e)
+            errors.append(f"{f.filename}: {str(e)[:80]}")
         finally:
             tmp_path.unlink(missing_ok=True)
 
@@ -318,7 +324,7 @@ async def upload_files(files: list[bytes] = [], corpus_id: str = "upload"):
         qr.upsert_chunks(all_chunks)
 
     return {"corpus_id": corpus_id, "n_files": n_files,
-            "n_chunks": len(all_chunks), "status": "ok"}
+            "n_chunks": len(all_chunks), "errors": errors, "status": "ok"}
 
 
 # ── Agent 报告生成端点 ─────────────────────────────────
