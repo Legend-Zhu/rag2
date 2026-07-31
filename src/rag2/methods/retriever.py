@@ -64,8 +64,10 @@ class Retriever:
 
         # 当前索引状态
         self._docs: list[dict] = []          # [{"title","text"}]
+        self._doc_ids: list[str] = []        # doc_id 列表（chunk_id 或自定义 ID）
         self._index = None                    # FAISS 索引
         self._corpus_key: str = ""            # 当前语料的哈希标识
+        self._chunk_map: dict[str, dict] = {} # chunk_id → {parent_doc_id, heading, page, ...}
 
     # ── 模型懒加载 ────────────────────────────────────────
 
@@ -103,13 +105,17 @@ class Retriever:
 
     # ── 建索引 ────────────────────────────────────────────
 
-    def build_index(self, docs: list[dict], force_rebuild: bool = False) -> str:
+    def build_index(self, docs: list[dict], force_rebuild: bool = False,
+                    doc_ids: list[str] | None = None,
+                    chunk_map: dict[str, dict] | None = None) -> str:
         """
         对文档集建 FAISS 索引，落盘缓存。
 
         Args:
             docs: [{"title": str, "text": str}, ...]
             force_rebuild: 忽略缓存重建
+            doc_ids: 可选，每个文档/chunk 的 ID（如 chunk_id）。默认用序号。
+            chunk_map: 可选，chunk_id → {parent_doc_id, heading, page} 映射。
         Returns:
             corpus_key（用于后续查询绑定）
         """
@@ -123,6 +129,8 @@ class Retriever:
             logger.info("命中索引缓存: %s", cache_path.name)
             data = np.load(cache_path, allow_pickle=False)
             self._docs = docs
+            self._doc_ids = doc_ids or [str(i) for i in range(len(docs))]
+            self._chunk_map = chunk_map or {}
             dim = int(data["dim"].item() if data["dim"].ndim > 0 else data["dim"])
             self._index = faiss.IndexFlatIP(dim)
             self._index.add(data["embeddings"])
@@ -150,6 +158,8 @@ class Retriever:
         self._index = faiss.IndexFlatIP(dim)
         self._index.add(emb.astype("float32"))
         self._docs = docs
+        self._doc_ids = doc_ids or [str(i) for i in range(len(docs))]
+        self._chunk_map = chunk_map or {}
         self._corpus_key = corpus_key
 
         # 落盘
@@ -157,6 +167,40 @@ class Retriever:
         logger.info("索引落盘: %s", cache_path.name)
 
         return corpus_key
+
+    def build_chunk_index(self, chunks: list, force_rebuild: bool = False) -> str:
+        """从 Chunk 对象列表建索引（chunk 级检索）。
+
+        Args:
+            chunks: list[Chunk]（rag2.ingest.models.Chunk）
+        Returns:
+            corpus_key
+        """
+        docs = [{"title": c.title_for_index, "text": c.text} for c in chunks]
+        doc_ids = [c.chunk_id for c in chunks]
+        chunk_map = {c.chunk_id: {
+            "parent_doc_id": c.parent_doc_id,
+            "heading": c.heading,
+            "page": c.page,
+            "char_start": c.char_start,
+            "char_end": c.char_end,
+        } for c in chunks}
+        return self.build_index(docs, force_rebuild=force_rebuild,
+                                 doc_ids=doc_ids, chunk_map=chunk_map)
+
+    def read_doc(self, doc_id: str) -> dict | None:
+        """按 doc_id/chunk_id 读取文档/chunk 内容。
+
+        Returns:
+            {"doc_id", "title", "text", "chunk_meta"(如有)} 或 None
+        """
+        for i, did in enumerate(self._doc_ids):
+            if did == doc_id and i < len(self._docs):
+                entry = {"doc_id": did, **self._docs[i]}
+                if did in self._chunk_map:
+                    entry["chunk_meta"] = self._chunk_map[did]
+                return entry
+        return None
 
     # ── 查询 ──────────────────────────────────────────────
 
@@ -190,12 +234,18 @@ class Retriever:
             if idx < 0:
                 continue
             doc = self._docs[idx]
-            candidates.append({
+            doc_id = self._doc_ids[idx] if idx < len(self._doc_ids) else str(idx)
+            entry = {
                 "title": doc.get("title", ""),
                 "text": doc.get("text", ""),
                 "score": float(dist),
                 "recall_rank": rank,
-            })
+                "doc_id": doc_id,
+            }
+            # 如果有 chunk_map，附带 chunk 元数据
+            if doc_id in self._chunk_map:
+                entry["chunk_meta"] = self._chunk_map[doc_id]
+            candidates.append(entry)
 
         if not rerank or len(candidates) <= top_k_rerank:
             return candidates[:top_k_rerank]
