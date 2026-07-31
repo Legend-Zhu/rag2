@@ -155,35 +155,50 @@ def health():
 
 @app.post("/search", response_model=SearchResponse)
 def search(req: SearchRequest):
-    # 如果指定了 corpus_id，用对应的上传语料检索器
+    """统一搜索接口。所有语料走同一路径，返回格式一致。"""
+    # 选择检索器：指定 corpus_id 用上传语料，否则用主语料
+    corpus_id = req.corpus_id or _state.get("corpus_id", "")
+    qr = None
     if req.corpus_id and req.corpus_id != _state.get("corpus_id"):
         upload_qrs = _state.get("upload_retrievers", {})
         qr = upload_qrs.get(req.corpus_id)
         if not qr:
             raise HTTPException(404, f"语料库 '{req.corpus_id}' 不存在")
-        t0 = time.time()
-        results = qr.search(req.query, top_k=req.top_k, use_rerank=(req.strategy != "vanilla"))
-        latency = time.time() - t0
-        return SearchResponse(
-            strategy=req.strategy or "fusion", results=results[:req.top_k],
-            latency_s=round(latency, 3), n_results=len(results),
+    else:
+        qr = _state.get("retriever")
+
+    if not qr:
+        raise HTTPException(503, "检索器未就绪")
+
+    # 统一搜索：strategy 控制模式
+    strategy = req.strategy or "fusion"
+    t0 = time.time()
+    if strategy == "vanilla":
+        results = qr.search_dense(req.query, top_k=req.top_k)
+        results = [{"cid": r.get("chunk_id", ""), "title": r.get("title", ""),
+                     "text": r.get("text", ""), "score": r.get("score", 0),
+                     "source": "dense"} for r in results]
+    else:
+        results = qr.search(req.query, top_k=req.top_k, use_rerank=True)
+        results = [{"cid": r.get("chunk_id", ""), "title": r.get("title", ""),
+                     "text": r.get("text", ""), "score": r.get("score", 0),
+                     "rerank_score": r.get("rerank_score"),
+                     "source": r.get("source", "dense+sparse")} for r in results]
+    latency = time.time() - t0
+
+    # 记录指标
+    mc = _state.get("metrics")
+    if mc:
+        mc.record_retrieval(
+            query=req.query, strategy=strategy, corpus_id=corpus_id,
+            n_results=len(results), latency_s=latency,
         )
 
-    # 默认搜主语料
-    router = _state.get("ab_router")
-    if not router:
-        raise HTTPException(503, "服务未就绪")
-
-    gold_cids = set(req.gold_cids) if req.gold_cids else None
-    strat, results, latency = router.search(
-        query=req.query, top_k=req.top_k,
-        strategy=req.strategy, gold_cids=gold_cids,
-        verdict=req.verdict, correct=req.correct,
-    )
     return SearchResponse(
-        strategy=strat, results=results[:req.top_k],
+        strategy=strategy, results=results[:req.top_k],
         latency_s=round(latency, 3), n_results=len(results),
     )
+
 
 
 @app.get("/metrics")
