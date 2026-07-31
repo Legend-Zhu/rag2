@@ -226,6 +226,66 @@ def recent_queries(limit: int = 20):
     return mc.get_recent_queries(limit)
 
 
+# ── 文档入库端点 ────────────────────────────────────────
+
+class IngestDirRequest(BaseModel):
+    dir_path: str
+    corpus_id: str = ""
+    chunk_size: int = 512
+    chunk_overlap: int = 64
+    build_index: bool = True
+
+@app.post("/ingest/dir")
+def ingest_dir(req: IngestDirRequest):
+    """触发目录入库：解析 → 分块 → 建索引 → 注册。"""
+    from rag2.ingest import DocumentParser, RecursiveChunker, IngestPipeline
+
+    dir_path = Path(req.dir_path)
+    if not dir_path.is_dir():
+        raise HTTPException(400, f"目录不存在: {req.dir_path}")
+
+    corpus_id = req.corpus_id or dir_path.name
+
+    # 构建 pipeline（复用已有的 retriever/index_manager/metrics）
+    pipeline = IngestPipeline(
+        parser=DocumentParser(),
+        chunker=RecursiveChunker(chunk_size=req.chunk_size, chunk_overlap=req.chunk_overlap),
+        retriever=_state.get("retriever") if req.build_index else None,
+        index_manager=_state.get("index_manager"),
+        metrics=_state.get("metrics"),
+    )
+
+    result = pipeline.ingest_dir(dir_path, corpus_id=corpus_id, build_index=req.build_index)
+    return result
+
+@app.post("/ingest/file")
+def ingest_file(file_path: str, corpus_id: str = ""):
+    """单文件增量入库。"""
+    from rag2.ingest import DocumentParser, RecursiveChunker, IngestPipeline
+
+    fp = Path(file_path)
+    if not fp.is_file():
+        raise HTTPException(400, f"文件不存在: {file_path}")
+
+    corpus_id = corpus_id or fp.stem
+    pipeline = IngestPipeline(
+        parser=DocumentParser(),
+        chunker=RecursiveChunker(),
+        retriever=_state.get("retriever"),
+        index_manager=_state.get("index_manager"),
+        metrics=_state.get("metrics"),
+    )
+    return pipeline.ingest_file(fp, corpus_id=corpus_id)
+
+@app.get("/ingest/status/{corpus_id}")
+def ingest_status(corpus_id: str):
+    """查看入库历史。"""
+    mc = _state.get("metrics")
+    if not mc:
+        raise HTTPException(503, "服务未就绪")
+    return mc.get_ingestion_summary(corpus_id)
+
+
 # ── HTML 仪表盘（零依赖，内嵌 FastAPI）─────────────────
 
 @app.get("/dashboard")

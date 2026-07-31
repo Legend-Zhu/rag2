@@ -56,9 +56,23 @@ CREATE TABLE IF NOT EXISTS ab_outcomes (
     latency_s REAL DEFAULT 0
 );
 
+CREATE TABLE IF NOT EXISTS ingestion_events (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    timestamp TEXT NOT NULL,
+    corpus_id TEXT,
+    n_files INTEGER DEFAULT 0,
+    n_chunks INTEGER DEFAULT 0,
+    parse_time_s REAL DEFAULT 0,
+    chunk_time_s REAL DEFAULT 0,
+    index_time_s REAL DEFAULT 0,
+    total_time_s REAL DEFAULT 0
+);
+
 CREATE INDEX IF NOT EXISTS idx_llm_ts ON llm_calls(timestamp);
 CREATE INDEX IF NOT EXISTS idx_ret_ts ON retrieval_calls(timestamp);
 CREATE INDEX IF NOT EXISTS idx_ab_ts ON ab_outcomes(timestamp);
+CREATE INDEX IF NOT EXISTS idx_ing_ts ON ingestion_events(timestamp);
+CREATE INDEX IF NOT EXISTS idx_ing_corpus ON ingestion_events(corpus_id);
 CREATE INDEX IF NOT EXISTS idx_ab_strategy ON ab_outcomes(strategy);
 """
 
@@ -141,6 +155,44 @@ class MetricsCollector:
             conn.commit()
 
     # ── A/B 结果记录 ─────────────────────────────────────
+    # ── 入库事件记录 ─────────────────────────────────────
+
+    def record_ingestion(
+        self,
+        corpus_id: str,
+        n_files: int = 0,
+        n_chunks: int = 0,
+        parse_time_s: float = 0,
+        chunk_time_s: float = 0,
+        index_time_s: float = 0,
+        total_time_s: float = 0,
+    ):
+        """记录一次文档入库事件。"""
+        ts = datetime.utcnow().isoformat()
+        with self._conn() as conn:
+            conn.execute(
+                "INSERT INTO ingestion_events (timestamp, corpus_id, n_files, n_chunks, "
+                "parse_time_s, chunk_time_s, index_time_s, total_time_s) "
+                "VALUES (?,?,?,?,?,?,?,?)",
+                (ts, corpus_id, n_files, n_chunks,
+                 parse_time_s, chunk_time_s, index_time_s, total_time_s),
+            )
+            conn.commit()
+
+    def get_ingestion_summary(self, corpus_id: str | None = None, limit: int = 20) -> list[dict]:
+        """获取入库历史。"""
+        with self._conn() as conn:
+            if corpus_id:
+                rows = conn.execute(
+                    "SELECT * FROM ingestion_events WHERE corpus_id=? ORDER BY id DESC LIMIT ?",
+                    (corpus_id, limit),
+                ).fetchall()
+            else:
+                rows = conn.execute(
+                    "SELECT * FROM ingestion_events ORDER BY id DESC LIMIT ?",
+                    (limit,),
+                ).fetchall()
+            return [dict(r) for r in rows]
 
     def record_ab_outcome(
         self,
